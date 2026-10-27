@@ -1,9 +1,0 @@
-/* FatSecret Design System — Global CSS Entry Point */
-/* This file contains @import declarations only.    */
-/* Add all token and font files here.               */
-
-@import './tokens/colors.css';
-@import './tokens/dark.css';
-@import './tokens/typography.css';
-@import './tokens/spacing.css';
-@import './tokens/borders.css';
