@@ -1,0 +1,98 @@
+/* ============================================================
+   FatSecret Design System — Typography Tokens
+   Font: Inter (Google Fonts)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+
+  /* ── FONT FAMILY ────────────────────────────────────────── */
+  --fs-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* ── FONT WEIGHTS ───────────────────────────────────────── */
+  --fs-font-weight-regular: 400;
+  --fs-font-weight-bold:    700;
+  --fs-font-weight-black:   900;
+
+  /* ── DISPLAY — Black (900), Sentence Case ───────────────── */
+  --fs-type-display-0-size:   40px;
+  --fs-type-display-0-line:   48px;
+  --fs-type-display-0-weight: 900;
+
+  --fs-type-display-1-size:   34px;
+  --fs-type-display-1-line:   42px;
+  --fs-type-display-1-weight: 900;
+
+  --fs-type-display-2-size:   24px;
+  --fs-type-display-2-line:   30px;
+  --fs-type-display-2-weight: 900;
+
+  --fs-type-display-3-size:   20px;
+  --fs-type-display-3-line:   26px;
+  --fs-type-display-3-weight: 900;
+
+  --fs-type-display-4-size:   16px;
+  --fs-type-display-4-line:   22px;
+  --fs-type-display-4-weight: 900;
+
+  /* ── HEADINGS — Bold (700), Sentence Case ───────────────── */
+  --fs-type-h0-size:   34px;
+  --fs-type-h0-line:   42px;
+  --fs-type-h0-weight: 700;
+
+  --fs-type-h1-size:   24px;
+  --fs-type-h1-line:   30px;
+  --fs-type-h1-weight: 700;
+
+  --fs-type-h2-size:   20px;
+  --fs-type-h2-line:   26px;
+  --fs-type-h2-weight: 700;
+
+  /* ── SUBSECTION — Bold (700), All Caps ───────────────── */
+  --fs-type-subsection-lg-size:      16px;
+  --fs-type-subsection-lg-line:      22px;
+  --fs-type-subsection-lg-weight:    700;
+  --fs-type-subsection-lg-spacing:   0em;
+
+  --fs-type-subsection-size:         14px;
+  --fs-type-subsection-line:         20px;
+  --fs-type-subsection-weight:       700;
+  --fs-type-subsection-spacing:      0em;
+
+  /* ── BODY — Sentence Case ───────────────────────────────── */
+  --fs-type-body-1-reg-size:   16px;
+  --fs-type-body-1-reg-line:   24px;
+  --fs-type-body-1-reg-weight: 400;
+
+  --fs-type-body-1-bold-size:   16px;
+  --fs-type-body-1-bold-line:   24px;
+  --fs-type-body-1-bold-weight: 700;
+
+  --fs-type-body-2-reg-size:   14px;
+  --fs-type-body-2-reg-line:   20px;
+  --fs-type-body-2-reg-weight: 400;
+
+  --fs-type-body-2-bold-size:   14px;
+  --fs-type-body-2-bold-line:   20px;
+  --fs-type-body-2-bold-weight: 700;
+
+  /* ── CAPTION — Sentence Case ────────────────────────────── */
+  --fs-type-caption-reg-size:   12px;
+  --fs-type-caption-reg-line:   16px;
+  --fs-type-caption-reg-weight: 400;
+
+  --fs-type-caption-bold-size:   12px;
+  --fs-type-caption-bold-line:   16px;
+  --fs-type-caption-bold-weight: 700;
+
+  --fs-type-caption-sm-size:   10px;
+  --fs-type-caption-sm-line:   14px;
+  --fs-type-caption-sm-weight: 400;
+
+  /* ── OVERLINE — Regular (400), All Caps ─────────────────── */
+  --fs-type-overline-size:    10px;
+  --fs-type-overline-line:    14px;
+  --fs-type-overline-weight:  400;
+  --fs-type-overline-spacing: 0.1em;
+}

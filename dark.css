@@ -1,0 +1,155 @@
+/* ============================================================
+   FatSecret Design System — Dark Theme Token Overrides
+   Source: uploads/fsds.json (THEME/dark)
+   Applied via: @media (prefers-color-scheme: dark) + .dark class
+   ============================================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root { @extend %dark-tokens; }
+}
+
+.dark {
+  @extend %dark-tokens;
+}
+
+/* Inline the dark values directly (no @extend support in plain CSS) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fs-color-primary:              #26CD6C;  /* mint.25 */
+    --fs-color-on-primary:           #030B19;  /* neutral.100 */
+    --fs-color-primary-container:    #006329;  /* mint.80 */
+    --fs-color-on-primary-container: #F7F8FF;  /* neutral.0 */
+
+    --fs-color-secondary:              #CDCCFA;  /* indigo.15 */
+    --fs-color-on-secondary:           #030B19;
+    --fs-color-secondary-container:    #424753;  /* neutral.75 */
+    --fs-color-on-secondary-container: #F7F8FF;
+
+    --fs-color-tertiary:              #BD95F3;  /* purple.30 */
+    --fs-color-on-tertiary:           #030B19;
+    --fs-color-tertiary-container:    #5F27AA;  /* purple.80 */
+    --fs-color-on-tertiary-container: #E7D7FC;  /* purple.10 */
+
+    --fs-color-critical:              #F0756C;  /* red.30 */
+    --fs-color-on-critical:           #030B19;
+    --fs-color-critical-container:    #952D00;  /* sunset.80 */
+    --fs-color-on-critical-container: #FDDFD3;  /* sunset.5 */
+
+    --fs-color-warning:              #F7A248;  /* orange.20 */
+    --fs-color-on-warning:           #030B19;
+    --fs-color-warning-container:    #804200;  /* orange.80 */
+    --fs-color-on-warning-container: #FDEB8F;  /* yellow.10 */
+
+    --fs-color-success:              #6CE19D;  /* mint.15 */
+    --fs-color-on-success:           #030B19;
+    --fs-color-success-container:    #336000;  /* lime.80 */
+    --fs-color-on-success-container: #BFF5BE;  /* green.5 */
+
+    --fs-color-info:              #98B9F4;  /* blue.25 */
+    --fs-color-on-info:           #030B19;
+    --fs-color-info-container:    #244F99;  /* blue.80 */
+    --fs-color-on-info-container: #D0E0FC;  /* blue.10 */
+
+    --fs-color-premium:              #F5B62E;  /* amber.40 */
+    --fs-color-on-premium:           #030B19;
+    --fs-color-premium-container:    #7A6600;  /* yellow.100 */
+    --fs-color-on-premium-container: #F7F8FF;
+
+    --fs-color-surface:                   #0C1525;  /* neutral.95 */
+    --fs-color-surface-bright:            #272E3C;  /* neutral.85 */
+    --fs-color-surface-dim:               #030B19;  /* neutral.100 */
+    --fs-color-surface-container-lowest:  #000000;
+    --fs-color-surface-container-low:     #030B19;  /* neutral.100 */
+    --fs-color-surface-container:         #1A2230;  /* neutral.90 */
+    --fs-color-surface-container-high:    #272E3C;  /* neutral.85 */
+    --fs-color-surface-container-highest: #424753;  /* neutral.75 */
+
+    --fs-color-on-surface-strong:   #F7F8FF;    /* neutral.0 */
+    --fs-color-on-surface-weak:     #EDEFFBa6;  /* neutral-alpha-on-dark.40 */
+    --fs-color-on-surface-weakest:  #C6CEFF47;  /* neutral-alpha-on-dark.80 */
+
+    --fs-color-border-strong: #999BA3;  /* neutral.40 */
+    --fs-color-border-weak:   #424753;  /* neutral.75 */
+
+    --fs-color-inverse-surface:           #F7F8FF;
+    --fs-color-inverse-on-surface-strong: #030B19;
+    --fs-color-inverse-primary:           #009C41;  /* mint.50 */
+
+    --fs-state-on-primary-08: #0000000d;
+    --fs-state-on-primary-12: #00000017;
+    --fs-state-on-primary-16: #00000029;
+    --fs-state-on-container-08: #ffffff1F;
+    --fs-state-on-container-12: #ffffff33;
+    --fs-state-on-container-16: #ffffff40;
+  }
+}
+
+/* Also expose .dark class for JS-toggled dark mode */
+.dark {
+  --fs-color-primary:              #26CD6C;
+  --fs-color-on-primary:           #030B19;
+  --fs-color-primary-container:    #006329;
+  --fs-color-on-primary-container: #F7F8FF;
+
+  --fs-color-secondary:              #CDCCFA;
+  --fs-color-on-secondary:           #030B19;
+  --fs-color-secondary-container:    #424753;
+  --fs-color-on-secondary-container: #F7F8FF;
+
+  --fs-color-tertiary:              #BD95F3;
+  --fs-color-on-tertiary:           #030B19;
+  --fs-color-tertiary-container:    #5F27AA;
+  --fs-color-on-tertiary-container: #E7D7FC;
+
+  --fs-color-critical:              #F0756C;
+  --fs-color-on-critical:           #030B19;
+  --fs-color-critical-container:    #952D00;
+  --fs-color-on-critical-container: #FDDFD3;
+
+  --fs-color-warning:              #F7A248;
+  --fs-color-on-warning:           #030B19;
+  --fs-color-warning-container:    #804200;
+  --fs-color-on-warning-container: #FDEB8F;
+
+  --fs-color-success:              #6CE19D;
+  --fs-color-on-success:           #030B19;
+  --fs-color-success-container:    #336000;
+  --fs-color-on-success-container: #BFF5BE;
+
+  --fs-color-info:              #98B9F4;
+  --fs-color-on-info:           #030B19;
+  --fs-color-info-container:    #244F99;
+  --fs-color-on-info-container: #D0E0FC;
+
+  --fs-color-premium:              #F5B62E;
+  --fs-color-on-premium:           #030B19;
+  --fs-color-premium-container:    #7A6600;
+  --fs-color-on-premium-container: #F7F8FF;
+
+  --fs-color-surface:                   #0C1525;
+  --fs-color-surface-bright:            #272E3C;
+  --fs-color-surface-dim:               #030B19;
+  --fs-color-surface-container-lowest:  #000000;
+  --fs-color-surface-container-low:     #030B19;
+  --fs-color-surface-container:         #1A2230;
+  --fs-color-surface-container-high:    #272E3C;
+  --fs-color-surface-container-highest: #424753;
+
+  --fs-color-on-surface-strong:   #F7F8FF;
+  --fs-color-on-surface-weak:     #EDEFFBa6;
+  --fs-color-on-surface-weakest:  #C6CEFF47;
+
+  --fs-color-border-strong: #999BA3;
+  --fs-color-border-weak:   #424753;
+
+  --fs-color-inverse-surface:           #F7F8FF;
+  --fs-color-inverse-on-surface-strong: #030B19;
+  --fs-color-inverse-primary:           #009C41;
+
+  --fs-state-on-primary-08: #0000000d;
+  --fs-state-on-primary-12: #00000017;
+  --fs-state-on-primary-16: #00000029;
+  --fs-state-on-container-08: #ffffff1F;
+  --fs-state-on-container-12: #ffffff33;
+  --fs-state-on-container-16: #ffffff40;
+}
