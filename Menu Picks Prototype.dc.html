@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/fatsecret-design-system-4aedf56f-3745-4a30-847a-0c3df119c70a/tokens/colors.css">
+<meta name="color-scheme" content="light">
+<link rel="stylesheet" href="_ds/fatsecret-design-system-4aedf56f-3745-4a30-847a-0c3df119c70a/tokens/typography.css">
+<link rel="stylesheet" href="_ds/fatsecret-design-system-4aedf56f-3745-4a30-847a-0c3df119c70a/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/fatsecret-design-system-4aedf56f-3745-4a30-847a-0c3df119c70a/tokens/borders.css">
+<script src="_ds/fatsecret-design-system-4aedf56f-3745-4a30-847a-0c3df119c70a/_ds_bundle.js"></script>
+<style>
+html,body{margin:0;padding:0;background:var(--fs-color-surface-dim);}
+*{box-sizing:border-box;}
+a{color:var(--fs-color-primary);} a:hover{color:var(--fs-color-on-primary-container);}
+button{font-family:inherit;}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;justify-content:center;align-items:flex-start;gap:40px;padding:40px 24px;flex-wrap:wrap;font-family:var(--fs-font-sans);color:var(--fs-color-on-surface-strong);">
+
+<div style="width:240px;display:flex;flex-direction:column;gap:4px;padding-top:24px;">
+  <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--fs-color-on-surface-weak);padding:0 12px 8px;">Screens</div>
+  <sc-for list="{{ jumpList }}" as="j" hint-placeholder-count="10">
+    <button onClick="{{ j.onClick }}" style="{{ j.style }}">
+      <span style="width:28px;font-weight:700;color:var(--fs-color-primary);">{{ j.num }}</span>
+      <span style="flex:1;">{{ j.label }}</span>
+      <span style="font-size:11px;color:var(--fs-color-on-surface-weak);">{{ j.tag }}</span>
+    </button>
+  </sc-for>
+  <div style="font-size:12px;line-height:18px;color:var(--fs-color-on-surface-weak);padding:16px 12px 0;text-wrap:pretty;">Start on the diary: tap Explore Menus.</div>
+</div>
+
+<div style="width:390px;height:844px;flex-shrink:0;border-radius:54px;background:#030B19;padding:10px;box-shadow:var(--fs-shadow-xl);">
+<div style="width:100%;height:100%;border-radius:44px;overflow:hidden;background:var(--fs-color-surface);position:relative;">
+
+  <div style="position:absolute;top:0;left:0;right:0;height:50px;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:4px 30px 0 34px;font-size:16px;font-weight:600;color:var(--fs-color-on-surface-strong);pointer-events:none;">
+    <span>12:07</span>
+    <span style="width:112px;height:32px;border-radius:20px;background:#030B19;"></span>
+    <span style="display:flex;gap:5px;align-items:center;"><span style="width:17px;height:10px;border-radius:2px;background:currentColor;"></span><span style="width:25px;height:12px;border-radius:4px;background:currentColor;"></span></span>
+  </div>
+
+  <!-- 1 DIARY -->
+  <sc-if value="{{ is.diary }}" hint-placeholder-val="{{ true }}">
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;background:var(--fs-color-surface);">
+    <div style="flex:1;overflow-y:auto;padding:58px 0 0;display:flex;flex-direction:column;">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:4px 16px;">
+        <div style="display:flex;gap:10px;">
+          <span style="width:44px;height:44px;border-radius:var(--fs-avatar-radius-lg);background:var(--fs-color-primary-container);color:var(--fs-color-on-surface-strong);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;">{{ persona.initials }}</span>
+          <span style="width:44px;height:44px;border-radius:50%;background:var(--fs-color-surface-container-high);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg></span>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <span style="width:44px;height:44px;border-radius:50%;background:var(--fs-color-surface-container-high);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg></span>
+          <span style="width:44px;height:44px;border-radius:50%;background:var(--fs-color-surface-container-high);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4"></path><path d="M8 2v4"></path><path d="M3 10h18"></path></svg></span>
+        </div>
+      </div>
+      <div style="font-size:18px;font-weight:700;padding:16px 16px 12px;">Today</div>
+      <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));padding:0 12px;">
+        <sc-for list="{{ week }}" as="d" hint-placeholder-count="7">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <span style="{{ d.style }}"></span>
+            <span style="font-size:11px;color:var(--fs-color-on-surface-weak);">{{ d.l }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;padding:12px 16px 16px;">
+        <span style="font-size:13px;font-weight:700;padding:2px 10px;border-radius:var(--fs-radius-pill);border:1.5px solid var(--fs-color-border-weak);color:var(--fs-color-on-surface-weak);">1</span>
+        <span style="flex:1;font-size:14px;font-weight:600;color:var(--fs-color-on-surface-weak);">Log food every day this week</span>
+      </div>
+      <div style="background:var(--fs-color-surface-container);padding:14px 16px 16px;display:flex;flex-direction:column;gap:10px;flex:1;">
+        <div style="display:flex;flex-direction:column;gap:6px;padding:0 6px 10px;border-bottom:1px solid var(--fs-color-border-weak);">
+          <span style="font-size:13px;letter-spacing:0.04em;color:var(--fs-color-on-surface-weak);">FOOD DIARY</span>
+          <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));">
+            <sc-for list="{{ diary.cols }}" as="dc" hint-placeholder-count="5">
+              <span style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;"><span style="font-size:12px;color:var(--fs-color-on-surface-weak);">{{ dc.l }}</span><span style="font-size:18px;font-weight:800;">{{ dc.v }}</span></span>
+            </sc-for>
+          </div>
+        </div>
+        <sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:var(--fs-radius-md);background:var(--fs-color-success-container);color:var(--fs-color-on-success-container);font-size:14px;font-weight:600;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Added to Lunch · {{ diary.leftLabel }}
+          </div>
+        </sc-if>
+        <sc-for list="{{ diary.meals }}" as="ml" hint-placeholder-count="5">
+          <div style="background:var(--fs-color-surface-container-lowest);border-radius:var(--fs-radius-lg);box-shadow:var(--fs-shadow-sm);padding:14px 14px 14px 16px;display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span style="width:20px;height:20px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:{{ ml.color }};">
+                <sc-if value="{{ ml.isBreakfast }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v3"></path><path d="m4.93 10.93 1.41 1.41"></path><path d="M2 18h2"></path><path d="M20 18h2"></path><path d="m19.07 10.93-1.41 1.41"></path><path d="M22 22H2"></path><path d="M16 18a4 4 0 0 0-8 0"></path></svg></sc-if>
+                <sc-if value="{{ ml.isSecond }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l-4.5-1.2"></path></svg></sc-if>
+                <sc-if value="{{ ml.isLunch }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></sc-if>
+                <sc-if value="{{ ml.isDinner }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10V2"></path><path d="m4.93 10.93 1.41 1.41"></path><path d="M2 18h2"></path><path d="M20 18h2"></path><path d="m19.07 10.93-1.41 1.41"></path><path d="M22 22H2"></path><path d="m16 6-4 4-4-4"></path><path d="M16 18a4 4 0 0 0-8 0"></path></svg></sc-if>
+                <sc-if value="{{ ml.isTea }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v2"></path><path d="M14 2v2"></path><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"></path><path d="M6 2v2"></path></svg></sc-if>
+                <sc-if value="{{ ml.isSnack }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></sc-if>
+              </span>
+              <span style="flex:1;font-size:18px;font-weight:700;">{{ ml.meal }}</span>
+              <span style="font-size:14px;font-weight:700;color:var(--fs-color-on-surface-weak);">{{ ml.kcal }}</span>
+              <button onClick="{{ openAdd }}" style="width:36px;height:36px;border:none;background:transparent;cursor:pointer;color:var(--fs-color-primary);display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg></button>
+            </div>
+            <sc-if value="{{ ml.has }}" hint-placeholder-val="{{ false }}">
+              <div style="{{ ml.foodStyle }}">{{ ml.food }}</div>
+            </sc-if>
+          </div>
+        </sc-for>
+        <div style="background:var(--fs-color-surface-container-lowest);border-radius:var(--fs-radius-lg);box-shadow:var(--fs-shadow-sm);padding:14px 14px 14px 16px;display:flex;align-items:center;gap:14px;">
+          <span style="width:20px;height:20px;flex-shrink:0;color:var(--fs-color-critical);display:flex;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg></span>
+          <span style="flex:1;display:flex;flex-direction:column;gap:2px;"><span style="font-size:18px;font-weight:700;">Custom Meals</span><span style="font-size:13px;color:var(--fs-color-on-surface-weak);">Track more than the main meals</span></span>
+          <span style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;color:var(--fs-color-on-surface-weak);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></span>
+        </div>
+          <div style="background:var(--fs-color-surface-container-lowest);border-radius:var(--fs-radius-lg);box-shadow:var(--fs-shadow-sm);padding:14px 14px 14px 16px;display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <span style="width:20px;height:20px;flex-shrink:0;color:var(--fs-color-info);display:flex;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"></path></svg></span>
+            <span style="flex:1;font-size:18px;font-weight:700;">Water</span>
+            <span style="font-size:15px;line-height:19px;text-align:right;">0 of<br>2 Litres</span>
+            <span style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--fs-color-primary);"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg></span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="flex:1;min-width:0;"><x-import component-from-global-scope="FatSecretDesignSystem_4aedf5.ProgressBar" value="{{ 0 }}" max="{{ 2000 }}" size="md" hint-size="100%,8px"></x-import></div>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--fs-color-info)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--fs-color-on-surface-weak)"><circle cx="5" cy="12" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle></svg>
+          </div>
+        </div>
+        <div style="background:var(--fs-color-surface-container-lowest);border-radius:var(--fs-radius-lg);box-shadow:var(--fs-shadow-sm);overflow:hidden;display:flex;flex-direction:column;">
+          <div style="padding:16px 14px 16px 16px;display:flex;align-items:center;gap:14px;">
+            <span style="width:20px;height:20px;flex-shrink:0;color:var(--fs-color-primary);display:flex;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M15 7h2a5 5 0 1 1 0 10h-2"></path><line x1="8" x2="16" y1="12" y2="12"></line></svg></span>
+            <span style="flex:1;font-size:16px;">Calories Burned</span>
+            <span style="font-size:16px;font-weight:700;color:var(--fs-color-primary);padding-right:8px;">0</span>
+          </div>
+          <div style="padding:12px 16px 12px 50px;background:var(--fs-color-surface-container-high);font-size:14px;">Health app: 0 Steps</div>
+        </div>
+        <div style="height:24px;flex-shrink:0;"></div>
+      </div>
+    </div>
+
+    <div style="flex-shrink:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:8px 4px 26px;background:var(--fs-color-surface-container-lowest);box-shadow:0 -1px 0 var(--fs-color-border-weak);">
+      <span style="display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--fs-color-on-surface-weak);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"></path><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"></path></svg>
+        <span style="font-size:11px;font-weight:600;">Community</span>
+      </span>
+      <span style="display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--fs-color-on-surface-weak);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="M6 12h2l2-3 3 6 2-3h3"></path></svg>
+        <span style="font-size:11px;font-weight:600;">Me</span>
+      </span>
+      <span style="display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--fs-color-primary);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg>
+        <span style="font-size:11px;font-weight:600;">Diary</span>
+      </span>
+      <span style="display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--fs-color-on-surface-weak);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"></path><path d="M18 20V4"></path><path d="M6 20v-4"></path></svg>
+        <span style="font-size:11px;font-weight:600;">Reports</span>
+      </span>
+      <span style="display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--fs-color-on-surface-weak);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="10" r="3"></circle><path d="M10.5 12.5 10 17h4l-.5-4.5"></path></svg>
+        <span style="font-size:11px;font-weight:600;">Premium</span>
+      </span>
+    </div>
+
+    <sc-if value="{{ addOpen }}" hint-placeholder-val="{{ true }}">
+      <div onClick="{{ closeAdd }}" style="position:absolute;inset:0;background:var(--fs-color-scrim);opacity:0.1;"></div>
+      <div style="position:absolute;left:0;right:0;bottom:0;background:var(--fs-color-surface);border-radius:var(--fs-radius-xl) var(--fs-radius-xl) 0 0;box-shadow:var(--fs-shadow-lg);padding:16px 16px 34px;display:flex;flex-direction:column;gap:14px;">
+        <div style="height:50px;border-radius:var(--fs-radius-pill);background:var(--fs-color-secondary-container);display:flex;align-items:center;gap:12px;padding:0 18px;font-size:17px;color:var(--fs-color-on-secondary-container);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>Search for food or recipes
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;">
+          <button style="display:flex;flex-direction:column;align-items:center;gap:6px;border:none;background:transparent;cursor:pointer;padding:0;color:var(--fs-color-on-surface-strong);">
+            <span style="width:100%;height:52px;border-radius:var(--fs-radius-lg);background:var(--fs-color-secondary-container);display:flex;align-items:center;justify-content:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5v14"></path><path d="M8 5v14"></path><path d="M12 5v14"></path><path d="M17 5v14"></path><path d="M21 5v14"></path></svg></span>
+            <span style="font-size:12px;text-align:center;">Barcode Scan</span>
+          </button>
+          <button onClick="{{ openSmartScan }}" style="display:flex;flex-direction:column;align-items:center;gap:6px;border:none;background:transparent;cursor:pointer;padding:0;color:var(--fs-color-on-surface-strong);">
+            <span style="width:100%;height:52px;border-radius:var(--fs-radius-lg);background:var(--fs-color-premium-container);color:var(--fs-color-on-premium-container);display:flex;align-items:center;justify-content:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path><circle cx="12" cy="13" r="3"></circle></svg></span>
+            <span style="font-size:12px;text-align:center;">Smart Food Scan</span>
+          </button>
+          <button style="display:flex;flex-direction:column;align-items:center;gap:6px;border:none;background:transparent;cursor:pointer;padding:0;color:var(--fs-color-on-surface-strong);">
+            <span style="width:100%;height:52px;border-radius:var(--fs-radius-lg);background:var(--fs-color-premium-container);color:var(--fs-color-on-premium-container);display:flex;align-items:center;justify-content:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><path d="M12 19v3"></path></svg></span>
+            <span style="font-size:12px;text-align:center;">Smart Assistant</span>
+          </button>
+          <button onClick="{{ goSearch }}" style="display:flex;flex-direction:column;align-items:center;gap:6px;border:none;background:transparent;cursor:pointer;padding:0;color:var(--fs-color-on-surface-strong);">
+            <span style="width:100%;height:52px;border-radius:var(--fs-radius-lg);background:var(--fs-color-premium-container);color:var(--fs-color-on-premium-container);display:flex;align-items:center;justify-content:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="3"></rect><path d="M3 9h18"></path><path d="M12 9v12"></path></svg></span>
+            <span style="font-size:12px;text-align:center;">Explore Menus</span>
+          </button>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <span style="width:100%;height:50px;border-radius:var(--fs-radius-pill);background:var(--fs-color-secondary-container);color:var(--fs-color-on-secondary-container);display:flex;align-items:center;justify-content:center;gap:10px;font-size:17px;font-weight:700;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path></svg>My Saved Food</span>
+          <span style="font-size:13px;">Cook Book, Saved Meals</span>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+  </sc-if>
+
+  <!-- 2 SMART SCAN CAMERA -->
+  <sc-if value="{{ is.camera }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;background:var(--fs-color-surface-container-lowest);">
+    <div style="padding:52px 20px 20px;background:linear-gradient(180deg,var(--fs-color-primary-container),var(--fs-color-surface-container-lowest));display:flex;flex-direction:column;gap:6px;">
+      <button onClick="{{ closeCamera }}" style="width:44px;height:44px;margin-left:-8px;border:none;background:transparent;cursor:pointer;color:var(--fs-color-on-surface-strong);display:flex;align-items:center;justify-content:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+      <div style="text-align:center;font-size:20px;font-weight:700;">{{ cam.title }}</div>
+      <div style="text-align:center;font-size:14px;line-height:20px;color:var(--fs-color-on-surface-weak);text-wrap:pretty;padding:0 8px;min-height:40px;">{{ cam.desc }}</div>
+    </div>
+    <div style="flex:1;min-height:0;background:#000000;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+      <sc-if value="{{ cam.isMenu }}" hint-placeholder-val="{{ false }}">
+        <div style="width:220px;background:#FBF7EE;color:#2A2620;border-radius:4px;padding:20px 18px;transform:rotate(-2deg);display:flex;flex-direction:column;gap:9px;font-family:Georgia,serif;opacity:0.92;">
+          <div style="text-align:center;font-size:15px;letter-spacing:0.1em;line-height:20px;text-transform:uppercase;text-wrap:balance;">{{ scanTitle }}</div>
+          <div style="height:1px;background:#2A2620;opacity:0.3;"></div>
+          <sc-for list="{{ harborMenu }}" as="m" hint-placeholder-count="8">
+            <div style="display:flex;justify-content:space-between;gap:8px;font-size:11px;"><span>{{ m.n }}</span><span>{{ m.pr }}</span></div>
+          </sc-for>
+        </div>
+        <div style="position:absolute;inset:22px;border:2px solid rgba(255,255,255,0.85);border-radius:16px;"></div>
+      </sc-if>
+      <sc-if value="{{ cam.isBarcode }}" hint-placeholder-val="{{ false }}">
+        <div style="width:240px;height:130px;border:2px solid rgba(255,255,255,0.85);border-radius:12px;"></div>
+      </sc-if>
+    </div>
+    <div style="padding:16px 20px 0;display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <div style="height:44px;display:flex;align-items:center;width:100%;justify-content:center;">
+        <sc-if value="{{ cam.isMenu }}" hint-placeholder-val="{{ false }}">
+          <span style="font-size:13px;line-height:18px;text-align:center;padding:0 12px;color:var(--fs-color-on-surface-weak);">{{ cam.hint }}</span>
+        </sc-if>
+        <sc-if value="{{ cam.showTabs }}" hint-placeholder-val="{{ true }}">
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;max-width:300px;padding:3px;border-radius:var(--fs-radius-pill);background:var(--fs-color-surface-container-high);">
+            <sc-for list="{{ camTabs }}" as="ct" hint-placeholder-count="2">
+              <button onClick="{{ ct.onClick }}" style="{{ ct.style }}">{{ ct.label }}</button>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:4px 44px 34px;">
+      <button onClick="{{ shutter }}" style="width:48px;height:48px;border:none;background:transparent;color:var(--fs-color-on-surface-strong);cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"></path></svg></button>
+      <button onClick="{{ shutter }}" style="width:76px;height:76px;border-radius:50%;border:5px solid var(--fs-color-primary);background:var(--fs-color-surface-container-lowest);padding:4px;cursor:pointer;"><span style="display:block;width:100%;height:100%;border-radius:50%;background:var(--fs-color-primary);"></span></button>
+      <sc-if value="{{ cam.showTabs }}" hint-placeholder-val="{{ true }}">
+        <span style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"></path></svg></span>
+      </sc-if>
+      <sc-if value="{{ cam.isMenu }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ camSearch }}" aria-label="Search the fatsecret database" style="width:48px;height:48px;border:none;border-radius:50%;background:var(--fs-color-surface-container-high);color:var(--fs-color-on-surface-strong);cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg></button>
+      </sc-if>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- 2a READING -->
+  <sc-if value="{{ is.reading }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:24px 32px;gap:28px;">
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="font-size:24px;font-weight:800;letter-spacing:-0.02em;">{{ reading.title }}</div>
+      <div style="font-size:15px;color:var(--fs-color-on-surface-weak);">{{ reading.sub }}</div>
+    </div>
+    <x-import component-from-global-scope="FatSecretDesignSystem_4aedf5.ProgressBar" value="{{ reading.pct }}" max="100" size="md" hint-size="100%,8px"></x-import>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <sc-for list="{{ reading.steps }}" as="rs" hint-placeholder-count="4">
+        <div style="display:flex;align-items:center;gap:12px;font-size:15px;">
+          <span style="{{ rs.dotStyle }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>
+          <span style="{{ rs.textStyle }}">{{ rs.label }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- 2b SEARCH -->
+  <sc-if value="{{ is.search }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;inset:0;padding-top:50px;display:flex;flex-direction:column;">
+    <div style="display:flex;align-items:center;gap:4px;padding:4px 8px;">
+      <button onClick="{{ goDiary }}" style="width:44px;height:44px;border:none;background:transparent;color:var(--fs-color-on-surface-strong);cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg></button>
+      <div style="font-size:18px;font-weight:700;">Explore Menus</div>
+    </div>
+    <div style="flex:1;overflow-y:auto;padding:8px 20px 24px;display:flex;flex-direction:column;gap:20px;">
+      <label style="display:flex;align-items:center;gap:10px;height:52px;padding:0 16px;border-radius:var(--fs-radius-md);border:1px solid var(--fs-color-border-strong);background:var(--fs-color-surface-container-lowest);">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--fs-color-on-surface-weak)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input value="{{ query }}" onChange="{{ onQuery }}" placeholder="Restaurant name" style="flex:1;border:none;outline:none;background:transparent;font-size:16px;font-family:inherit;color:var(--fs-color-on-surface-strong);"></input>
+      </label>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--fs-color-on-surface-weak);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>Near you</div>
+        <sc-for list="{{ venueList }}" as="v" hint-placeholder-count="3">
+          <button onClick="{{ v.onClick }}" style="display:flex;align-items:center;gap:14px;padding:14px;border:none;cursor:pointer;text-align:left;border-radius:var(--fs-radius-lg);background:var(--fs-color-surface-container-lowest);box-shadow:var(--fs-shadow-sm);color:var(--fs-color-on-surface-strong);">
+            <span style="width:48px;height:48px;flex-shrink:0;border-radius:var(--fs-radius-md);background:var(--fs-color-secondary-container);color:var(--fs-color-on-secondary-container);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;">{{ v.initial }}</span>
+            <span style="flex:1;display:flex;flex-direction:column;gap:3px;min-width:0;">
+              <span style="font-size:16px;font-weight:700;">{{ v.name }}</span>
+              <span style="font-size:13px;color:var(--fs-color-on-surface-weak);">{{ v.meta }}</span>
+              <span style="{{ v.statusStyle }}">{{ v.status }}</span>
+            </span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--fs-color-on-surface-weak)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+          </button>
+        </sc-for>
+        <sc-if value="{{ noVenues }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:16px 4px;font-size:15px;color:var(--fs-color-on-surface-weak);">No match in the fatsecret library yet.</div>
+        </sc-if>
+      </div>
+      <div style="display:flex;justify-content:center;">
+        <x-import component-from-global-scope="FatSecretDesignSystem_4aedf5.Button" variant="outline" size="sm" shape="round" onClick="{{ openSheet }}" hint-size="160px,40px">Can't find it?</x-import>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- 2d PICK FILE -->
+  <sc-if value="{{ is.pickfile }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;inset:0;padding-top:50px;display:flex;flex-direction:column;">
+    <div style="display:flex;align-items:center;gap:4px;padding:4px 8px;">
+      <button onClick="{{ goDbSearch }}" style="width:44px;height:44px;border:none;background:transparent;color:var(--fs-color-on-surface-strong);cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg></button>
+      <div style="display:flex;flex-direction:column;"><span style="font-size:16px;font-weight:700;">{{ pf.title }}</span><span style="font-size:12px;color:var(--fs-color-on-surface-weak);">{{ venue.name }} · {{ pf.sub }}</span></div>
+    </div>
+    <div style="flex:1;overflow-y:auto;padding:8px 20px 24px;display:flex;flex-direction:column;gap:16px;">
+      <sc-if value="{{ pf.hasSteps }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:12px;padding:16px;border-radius:var(--fs-radius-lg);background:var(--fs-color-surface-container-lowest);box-shadow:var(--fs-shadow-sm);">
+          <sc-for list="{{ pf.steps }}" as="s" hint-placeholder-count="3">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="width:28px;height:28px;flex-shrink:0;border-radius:50%;background:var(--fs-color-primary-container);color:var(--fs-color-on-surface-strong);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;">{{ s.0 }}</span>
+              <span style="font-size:15px;line-height:20px;">{{ s.1 }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--fs-color-on-surface-weak);">{{ pf.listLabel }}</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <sc-for list="{{ pf.items }}" as="f" hint-placeholder-count="3">
+          <button onClick="{{ f.onClick }}" style="{{ f.rowStyle }}">
+            <span style="width:44px;height:56px;flex-shrink:0;border-radius:var(--fs-radius-sm);background:var(--fs-color-surface-container-high);display:flex;flex-direction:column;gap:4px;padding:8px 6px;box-sizing:border-box;"><span style="height:3px;width:70%;background:var(--fs-color-border-strong);border-radius:2px;"></span><span style="height:3px;background:var(--fs-color-border-weak);border-radius:2px;"></span><span style="height:3px;background:var(--fs-color-border-weak);border-radius:2px;"></span><span style="height:3px;width:80%;background:var(--fs-color-border-weak);border-radius:2px;"></span><span style="height:3px;background:var(--fs-color-border-weak);border-radius:2px;"></span></span>
+            <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;"><span style="font-size:15px;font-weight:600;overflow:hidden;text-overflow:ellipsis;">{{ f.n }}</span><span style="font-size:13px;color:var(--fs-color-on-surface-weak);">{{ f.m }}</span></span>
+            <span style="{{ f.dotStyle }}"></span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ pf.file }}" hint-placeholder-val="{{ true }}">
+        <button style="height:48px;border-radius:var(--fs-radius-pill);border:1px solid var(--fs-color-border-strong);background:transparent;color:var(--fs-color-on-surface-strong);font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg>Browse Files</button>
+      </sc-if>
+      <sc-if value="{{ pf.maps }}" hint-placeholder-val="{{ false }}">
+        <button style="height:48px;border-radius:var(--fs-radius-pill);border:1px solid var(--fs-color-border-strong);background:transparent;color:var(--fs-color-on-surface-strong);font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>Open Google Maps</button>
+      </sc-if>
+      <sc-if value="{{ pf.photo }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ goCameraVenue }}" style="height:48px;border-radius:var(--fs-radius-pill);border:1px solid var(--fs-color-border-strong);background:transparent;color:var(--fs-color-on-surface-strong);font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path><circle cx="12" cy="13" r="3"></circle></svg>Open camera</button>
+      </sc-if>
+    </div>
+    <div style="padding:12px 20px 28px;background:var(--fs-color-surface);box-shadow:0 -1px 0 var(--fs-color-border-weak);display:flex;flex-direction:column;">
+      <button onClick="{{ pf.go }}" style="height:52px;border:none;border-radius:var(--fs-radius-pill);background:var(--fs-color-primary);color:var(--fs-color-on-primary);font-size:16px;font-weight:700;cursor:pointer;">{{ pf.cta }}</button>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- 2d MENU RESULT -->
+  <sc-if value="{{ is.menuresult }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;inset:0;padding-top:50px;display:flex;flex-direction:column;">
+    <div style="display:flex;align-items:center;gap:4px;padding:4px 8px;">
+      <button onClick="{{ goDbSearch }}" style="width:44px;height:44px;border:none;background:transparent;color:var(--fs-color-on-surface-strong);cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg></button>
+      <div style="display:flex;flex-direction:column;"><span style="font-size:16px;font-weight:700;">{{ venue.name }}</span><span style="font-size:12px;color:var(--fs-color-on-surface-weak);">{{ sourceLabel }}</span></div>
+    </div>
+    <div style="flex:1;overflow-y:auto;padding:8px 20px 24px;display:flex;flex-direction:column;gap:16px;">
+      <div style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:var(--fs-radius-lg);background:var(--fs-color-success-container);color:var(--fs-color-on-success-container);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+        <span style="display:flex;flex-direction:column;gap:2px;"><span style="font-size:15px;font-weight:700;">{{ mr.title }}</span><span style="font-size:13px;line-height:18px;">{{ mr.sub }}</span></span>
+      </div>
+      <sc-if value="{{ mrPrefs }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:24px;padding-top:4px;">
+          <div style="font-size:22px;font-weight:800;letter-spacing:-0.02em;line-height:28px;">Let's find a meal that works for you</div>
+          <sc-for list="{{ prefGroups }}" as="g" hint-placeholder-count="3">
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <div style="font-size:15px;font-weight:700;">{{ g.title }}</div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <sc-for list="{{ g.options }}" as="o" hint-placeholder-count="3">
+                  <x-import component-from-global-scope="FatSecretDesignSystem_4aedf5.FilterChip" selected="{{ o.selected }}" onToggle="{{ o.onToggle }}" dc-props="{{ o.chipProps }}" hint-size="90px,32px">{{ o.label }}</x-import>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ mrList }}" hint-placeholder-val="{{ true }}">
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--fs-color-on-surface-weak);">{{ dbCount }}</div>
+      <div style="display:flex;flex-direction:column;background:var(--fs-color-surface-container-lowest);border-radius:var(--fs-radius-lg);box-shadow:var(--fs-shadow-sm);overflow:hidden;">
+        <sc-for list="{{ dbItems }}" as="di" hint-placeholder-count="6">
+          <button onClick="{{ di.onClick }}" style="display:flex;align-items:center;gap:12px;padding:14px 16px;border:none;border-bottom:1px solid var(--fs-color-border-weak);background:transparent;cursor:pointer;text-align:left;color:var(--fs-color-on-surface-strong);">
+            <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;">
+              <span style="font-size:15px;font-weight:600;line-height:20px;">{{ di.name }}</span>
+              <sc-if value="{{ dbMatch }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;line-height:18px;color:var(--fs-color-primary);font-weight:600;">{{ di.match }}</span></sc-if>
+              <span style="font-size:13px;color:var(--fs-color-on-surface-weak);">{{ di.meta }}</span>
+              <span style="{{ di.tagStyle }}">{{ di.tag }}</span>
+            </span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--fs-color-on-surface-weak)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+          </button>
+        </sc-for>
+      </div>
+      </sc-if>
+    </div>
+    <div style="padding:12px 20px 28px;display:flex;flex-direction:column;gap:8px;background:var(--fs-color-surface);box-shadow:0 -1px 0 var(--fs-color-border-weak);">
+      <button onClick="{{ mrGo }}" style="height:52px;border:none;border-radius:var(--fs-radius-pill);background:var(--fs-color-primary);color:var(--fs-color-on-primary);font-size:16px;font-weight:700;cursor:pointer;">{{ mrCta }}</button>
+      <sc-if value="{{ mrList }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ goDbSearch }}" style="height:44px;border:none;background:transparent;color:var(--fs-color-primary);font-size:15px;font-weight:700;cursor:pointer;">Search for foods instead</button>
+      </sc-if>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- 2c DB SEARCH -->
+  <sc-if value="{{ is.dbsearch }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;inset:0;padding-top:50px;display:flex;flex-direction:column;">
+    <div style="display:flex;align-items:center;gap:4px;padding:4px 8px;">
+      <button onClick="{{ goCameraVenue }}" style="width:44px;height:44px;border:none;background:transparent;color:var(--fs-color-on-surface-strong);cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg></button>
+      <div style="display:flex;flex-direction:column;"><span style="font-size:16px;font-weight:700;">{{ venue.name }}</span><span style="font-size:12px;color:var(--fs-color-on-surface-weak);">{{ dbSub }}</span></div>
+    </div>
+    <div style="flex:1;overflow-y:auto;padding:8px 20px 24px;display:flex;flex-direction:column;gap:16px;">
+      <sc-if value="{{ dbGeneric }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:var(--fs-radius-md);background:var(--fs-color-warning-container);color:var(--fs-color-on-warning-container);font-size:13px;line-height:18px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+          <span>{{ dbBanner }}</span>
+        </div>
+      </sc-if>
+      <sc-if value="{{ dbGeneric }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--fs-color-on-surface-weak);">Other ways to get the menu</div>
+          <sc-if value="{{ webDisabled }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;border-radius:var(--fs-radius-md);border:1px solid var(--fs-color-border-weak);background:var(--fs-color-surface-container);overflow:hidden;" aria-disabled="true">
+            <div style="display:flex;align-items:center;gap:14px;padding:14px;color:var(--fs-color-on-surface-weak);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+              <span style="display:flex;flex-direction:column;gap:2px;"><span style="font-size:15px;font-weight:700;">Use the restaurant's website</span><span style="font-size:13px;">We read their own menu page or PDF</span></span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--fs-color-surface-container-high);color:var(--fs-color-on-surface-strong);font-size:13px;font-weight:600;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>Menu not found
+            </div>
+          </div>
+          </sc-if>
+          <sc-if value="{{ webEnabled }}" hint-placeholder-val="{{ true }}">
+          <button onClick="{{ venueWeb }}" style="display:flex;align-items:center;gap:14px;padding:14px;border-radius:var(--fs-radius-md);border:1px solid var(--fs-color-border-weak);background:var(--fs-color-surface-container-lowest);cursor:pointer;text-align:left;color:var(--fs-color-on-surface-strong);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--fs-color-primary)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+            <span style="display:flex;flex-direction:column;gap:2px;"><span style="font-size:15px;font-weight:700;">Use the restaurant's website</span><span style="font-size:13px;color:var(--fs-color-on-surface-weak);">We read their own menu page or PDF</span></span>
+          </button>
+          </sc-if>
+          <button onClick="{{ venueShot }}" style="display:flex;align-items:center;gap:14px;padding:14px;border-radius:var(--fs-radius-md);border:1px solid var(--fs-color-border-weak);background:var(--fs-color-surface-container-lowest);cursor:pointer;text-align:left;color:var(--fs-color-on-surface-strong);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--fs-color-primary)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path><circle cx="12" cy="13" r="3"></circle></svg>
+            <span style="display:flex;flex-direction:column;gap:2px;"><span style="font-size:15px;font-weight:700;">Take a photo</span><span style="font-size:13px;color:var(--fs-color-on-surface-weak);">Capture the menu or upload from your gallery</span></span>
+          </button>
+        </div>
+      </sc-if>
+
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--fs-color-on-surface-weak);">{{ dbCount }}</div>
+      <label style="display:flex;align-items:center;gap:10px;height:52px;padding:0 16px;border-radius:var(--fs-radius-md);border:1px solid var(--fs-color-border-strong);background:var(--fs-color-surface-container-lowest);">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--fs-color-on-surface-weak)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input value="{{ dbQuery }}" onChange="{{ onDbQuery }}" placeholder="{{ dbPlaceholder }}" style="flex:1;border:none;outline:none;background:transparent;font-size:16px;font-family:inherit;color:var(--fs-color-on-surface-strong);"></input>
+      </label>
+      <sc-if value="{{ dbShowPicks }}" hint-placeholder-val="{{ true }}">
+      <button onClick="{{ goPrefs }}" style="display:flex;align-items:center;gap:12px;padding:14px 16px;border:none;cursor:pointer;text-align:left;border-radius:var(--fs-radius-lg);background:var(--fs-color-primary-container);color:var(--fs-color-on-surface-strong);">
+        <span style="flex:1;display:flex;flex-direction:column;gap:2px;"><span style="font-size:15px;font-weight:700;">Not sure what to order?</span><span style="font-size:13px;">Get 3 picks that fit your day</span></span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+      </button>
+      </sc-if>
+      <div style="display:flex;flex-direction:column;background:var(--fs-color-surface-container-lowest);border-radius:var(--fs-radius-lg);box-shadow:var(--fs-shadow-sm);overflow:hidden;">
+        <sc-for list="{{ dbItems }}" as="di" hint-placeholder-count="6">
+          <button onClick="{{ di.onClick }}" style="display:flex;align-items:center;gap:12px;padding:14px 16px;border:none;border-bottom:1px solid var(--fs-color-border-weak);background:transparent;cursor:pointer;text-align:left;color:var(--fs-color-on-surface-strong);">
+            <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;">
+              <span style="font-size:15px;font-weight:600;line-height:20px;">{{ di.name }}</span>
+              <sc-if value="{{ dbMatch }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;line-height:18px;color:var(--fs-color-primary);font-weight:600;">{{ di.match }}</span></sc-if>
+              <span style="font-size:13px;color:var(--fs-color-on-surface-weak);">{{ di.meta }}</span>
+              <span style="{{ di.tagStyle }}">{{ di.tag }}</span>
+            </span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--fs-color-on-surface-weak)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ dbEmpty }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:8px 4px;font-size:15px;color:var(--fs-color-on-surface-weak);">No items match. Try another word.</div>
+      </sc-if>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- 3 PREFS -->
+  <sc-if value="{{ is.prefs }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;inset:0;padding-top:50px;display:flex;flex-direction:column;">
+    <div style="display:flex;align-items:center;gap:4px;padding:4px 8px;">
+      <button onClick="{{ backFromPrefs }}" style="width:44px;height:44px;border:none;background:transparent;color:var(--fs-color-on-surface-strong);cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg></button>
+      <div style="display:flex;flex-direction:column;"><span style="font-size:16px;font-weight:700;">{{ venue.name }}</span><span style="font-size:12px;color:var(--fs-color-on-surface-weak);">{{ sourceLabel }}</span></div>
+    </div>
+    <div style="flex:1;overflow-y:auto;padding:16px 20px 24px;display:flex;flex-direction:column;gap:28px;">
+      <div style="font-size:24px;font-weight:800;letter-spacing:-0.02em;">Let's find a meal that works for you</div>
+      <sc-for list="{{ prefGroups }}" as="g" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="font-size:15px;font-weight:700;">{{ g.title }}</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <sc-for list="{{ g.options }}" as="o" hint-placeholder-count="3">
+              <x-import component-from-global-scope="FatSecretDesignSystem_4aedf5.FilterChip" selected="{{ o.selected }}" onToggle="{{ o.onToggle }}" dc-props="{{ o.chipProps }}" hint-size="90px,32px">{{ o.label }}</x-import>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="padding:12px 20px 34px;">
+      <x-import component-from-global-scope="FatSecretDesignSystem_4aedf5.Button" variant="filled" shape="round" full-width="{{ true }}" onClick="{{ goPicks }}" hint-size="100%,56px">Show my 3 picks</x-import>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- 4 PICKS -->
+  <sc-if value="{{ is.picks }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;inset:0;padding-top:50px;display:flex;flex-direction:column;">
+    <div style="display:flex;align-items:center;gap:4px;padding:4px 8px;">
+      <button onClick="{{ picksBack }}" style="width:44px;height:44px;border:none;background:transparent;color:var(--fs-color-on-surface-strong);cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg></button>
+      <div style="display:flex;flex-direction:column;"><span style="font-size:16px;font-weight:700;">{{ venue.name }}</span><span style="font-size:12px;color:var(--fs-color-on-surface-weak);">{{ sourceLabel }}</span></div>
+    </div>
+    <div style="flex:1;overflow-y:auto;padding:12px 20px 28px;display:flex;flex-direction:column;gap:16px;">
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <div style="font-size:24px;font-weight:800;letter-spacing:-0.02em;">Your top 3 picks</div>
+        <div style="font-size:14px;line-height:20px;color:var(--fs-color-on-surface-weak);">{{ picksSub }}</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;padding:4px;border-radius:var(--fs-radius-pill);background:var(--fs-color-surface-container-high);">
+        <button onClick="{{ setDine }}" style="{{ segDine }}">Dine in</button>
+        <button onClick="{{ setDelivery }}" style="{{ segDelivery }}">Delivery</button>
+      </div>
+      <sc-for list="{{ picks }}" as="pk" hint-placeholder-count="3">
+        <button onClick="{{ pk.onOpen }}" style="{{ pk.cardStyle }}">
+          <span style="{{ pk.rankStyle }}">{{ pk.rankLabel }}</span>
+          <span style="{{ pk.nameStyle }}">{{ pk.name }}</span>
+          <span style="font-size:14px;line-height:20px;color:var(--fs-color-on-surface-weak);text-wrap:pretty;">{{ pk.desc }}</span>
+          <span style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding-top:2px;">
+            <span style="display:flex;flex-wrap:wrap;gap:6px;">
+              <sc-for list="{{ pk.qual }}" as="q" hint-placeholder-count="2"><span style="{{ q.style }}">{{ q.t }}</span></sc-for>
+            </span>
+            <span style="{{ pk.arrowStyle }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
+          </span>
+        </button>
+      </sc-for>
+      <sc-if value="{{ picksNote }}" hint-placeholder-val="{{ false }}">
+        <div style="font-size:14px;line-height:20px;color:var(--fs-color-on-surface-weak);padding:0 4px;">{{ picksNoteText }}</div>
+      </sc-if>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- 5 DETAIL -->
+  <sc-if value="{{ is.detail }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;inset:0;padding-top:50px;display:flex;flex-direction:column;">
+    <div style="display:flex;align-items:center;gap:4px;padding:4px 8px;">
+      <button onClick="{{ detailBack }}" style="width:44px;height:44px;border:none;background:transparent;color:var(--fs-color-on-surface-strong);cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg></button>
+      <div style="font-size:16px;font-weight:700;">{{ pick.rankLabel }}</div>
+    </div>
+    <div style="flex:1;overflow-y:auto;padding:8px 20px 24px;display:flex;flex-direction:column;gap:18px;">
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="font-size:24px;font-weight:800;line-height:30px;letter-spacing:-0.02em;">{{ pick.name }}</div>
+        <div style="font-size:14px;color:var(--fs-color-on-surface-weak);">{{ venue.name }}</div>
+      </div>
+      <sc-if value="{{ showNutri }}" hint-placeholder-val="{{ true }}">
+      <div style="background:var(--fs-color-surface-container-lowest);border-radius:var(--fs-radius-lg);box-shadow:var(--fs-shadow-sm);padding:16px;display:flex;flex-direction:column;gap:12px;">
+        <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;">
+          <sc-for list="{{ pick.macros }}" as="mc" hint-placeholder-count="5">
+            <span style="display:flex;flex-direction:column;gap:2px;"><span style="font-size:19px;font-weight:800;letter-spacing:-0.01em;">{{ mc.v }}</span><span style="font-size:11px;font-weight:700;letter-spacing:0.04em;color:var(--fs-color-on-surface-weak);">{{ mc.l }}</span></span>
+          </sc-for>
+        </div>
+        <x-import component-from-global-scope="FatSecretDesignSystem_4aedf5.ProgressBar" value="{{ pick.dayAfter }}" max="{{ persona.goal }}" size="sm" hint-size="100%,6px"></x-import>
+        <div style="font-size:13px;color:var(--fs-color-on-surface-weak);">{{ pick.afterLabel }}</div>
+      </div>
+      </sc-if>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--fs-color-on-surface-weak);">The combo</div>
+        <sc-for list="{{ pick.items }}" as="it" hint-placeholder-count="2">
+          <div style="font-size:16px;line-height:22px;display:flex;gap:10px;"><span style="color:var(--fs-color-primary);font-weight:700;">·</span><span>{{ it }}</span></div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--fs-color-on-surface-weak);">Tweaks to request</div>
+        <sc-for list="{{ pick.tweaks }}" as="tw" hint-placeholder-count="2">
+          <div style="display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:21px;"><span style="width:22px;height:22px;flex-shrink:0;border-radius:50%;background:var(--fs-color-primary-container);color:var(--fs-color-on-surface-strong);display:flex;align-items:center;justify-content:center;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span>{{ tw }}</span></div>
+        </sc-for>
+      </div>
+      <sc-if value="{{ detailExtras }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;flex-direction:column;gap:8px;padding:14px 16px;border-radius:var(--fs-radius-md);background:var(--fs-color-surface-container);">
+        <div style="font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg>If you're unsure, ask</div>
+        <div style="font-size:15px;line-height:21px;">“{{ pick.ask }}”</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-start;">
+        <span style="{{ pick.confStyle }}">{{ pick.confLabel }}</span>
+        <span style="font-size:13px;line-height:18px;color:var(--fs-color-on-surface-weak);">{{ pick.confDesc }}</span>
+      </div>
+      </sc-if>
+    </div>
+    <div style="padding:12px 20px 30px;display:flex;flex-direction:column;gap:4px;border-top:1px solid var(--fs-color-border-weak);">
+      <sc-if value="{{ showWaiterBtn }}" hint-placeholder-val="{{ true }}">
+        <x-import component-from-global-scope="FatSecretDesignSystem_4aedf5.Button" variant="filled" shape="round" full-width="{{ true }}" onClick="{{ goWaiter }}" hint-size="100%,56px">Show the waiter</x-import>
+      </sc-if>
+      <sc-if value="{{ isDelivery }}" hint-placeholder-val="{{ false }}">
+        <x-import component-from-global-scope="FatSecretDesignSystem_4aedf5.Button" variant="filled" shape="round" full-width="{{ true }}" onClick="{{ goDelivery }}" hint-size="100%,56px">Order for delivery</x-import>
+      </sc-if>
+      <sc-if value="{{ addPanel }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:14px;padding-top:4px;">
+          <div style="height:50px;border-radius:var(--fs-radius-pill);background:var(--fs-color-secondary-container);display:flex;align-items:center;gap:12px;padding:0 18px;font-size:16px;color:var(--fs-color-on-secondary-container);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>Search for food or add as new food
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;">
+          <button onClick="{{ openSmartScan }}" style="display:flex;flex-direction:column;align-items:center;gap:6px;border:none;background:transparent;cursor:pointer;padding:0;color:var(--fs-color-on-surface-strong);">
+            <span style="width:100%;height:52px;border-radius:var(--fs-radius-lg);background:var(--fs-color-premium-container);color:var(--fs-color-on-premium-container);display:flex;align-items:center;justify-content:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path><circle cx="12" cy="13" r="3"></circle></svg></span>
+            <span style="font-size:12px;text-align:center;">Smart Food Scan</span>
+          </button>
+          <button style="display:flex;flex-direction:column;align-items:center;gap:6px;border:none;background:transparent;cursor:pointer;padding:0;color:var(--fs-color-on-surface-strong);">
+            <span style="width:100%;height:52px;border-radius:var(--fs-radius-lg);background:var(--fs-color-premium-container);color:var(--fs-color-on-premium-container);display:flex;align-items:center;justify-content:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><path d="M12 19v3"></path></svg></span>
+            <span style="font-size:12px;text-align:center;">Smart Assistant</span>
+          </button>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ logPrimary }}" hint-placeholder-val="{{ false }}">
+        <x-import component-from-global-scope="FatSecretDesignSystem_4aedf5.Button" variant="filled" shape="round" full-width="{{ true }}" onClick="{{ logPick }}" hint-size="100%,56px">Log to diary</x-import>
+      </sc-if>
+      <sc-if value="{{ logSecondary }}" hint-placeholder-val="{{ true }}">
+        <x-import component-from-global-scope="FatSecretDesignSystem_4aedf5.Button" variant="text" shape="round" size="sm" full-width="{{ true }}" onClick="{{ logPick }}" hint-size="100%,40px">Log to diary</x-import>
+      </sc-if>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- 6 WAITER -->
+  <sc-if value="{{ is.waiter }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;inset:0;padding-top:50px;display:flex;flex-direction:column;background:var(--fs-color-surface-container-lowest);">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:4px 8px;">
+      <button onClick="{{ goDetail }}" style="width:44px;height:44px;border:none;background:transparent;color:var(--fs-color-on-surface-strong);cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+      <span style="font-size:13px;color:var(--fs-color-on-surface-weak);padding-right:16px;">Turn your screen to the server</span>
+    </div>
+    <div style="flex:1;overflow-y:auto;padding:16px 28px 24px;display:flex;flex-direction:column;gap:26px;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="font-size:16px;color:var(--fs-color-on-surface-weak);">I'd like to order</div>
+        <div style="font-size:26px;font-weight:800;line-height:32px;letter-spacing:-0.02em;">{{ pick.name }}</div>
+      </div>
+      <div style="height:1px;background:var(--fs-color-border-weak);"></div>
+      <div style="display:flex;flex-direction:column;gap:22px;">
+        <div style="font-size:16px;color:var(--fs-color-on-surface-weak);">Could you please</div>
+        <sc-for list="{{ pick.waiterList }}" as="wa" hint-placeholder-count="2">
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <span style="width:40px;height:40px;flex-shrink:0;border-radius:50%;background:var(--fs-color-primary);color:var(--fs-color-on-primary);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;">{{ wa.n }}</span>
+            <span style="font-size:22px;font-weight:700;line-height:29px;letter-spacing:-0.01em;text-wrap:pretty;">{{ wa.t }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="font-size:22px;font-weight:600;">Thank you!</div>
+    </div>
+    <div style="padding:12px 20px 34px;">
+      <x-import component-from-global-scope="FatSecretDesignSystem_4aedf5.Button" variant="filled" shape="round" full-width="{{ true }}" onClick="{{ logPick }}" hint-size="100%,56px">Ordered · Log to diary</x-import>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- 7 DELIVERY -->
+  <sc-if value="{{ is.delivery }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;inset:0;padding-top:50px;display:flex;flex-direction:column;">
+    <div style="display:flex;align-items:center;gap:4px;padding:4px 8px;">
+      <button onClick="{{ goDetail }}" style="width:44px;height:44px;border:none;background:transparent;color:var(--fs-color-on-surface-strong);cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg></button>
+      <div style="display:flex;flex-direction:column;"><span style="font-size:16px;font-weight:700;">Delivery</span><span style="font-size:12px;color:var(--fs-color-on-surface-weak);">{{ venue.name }} · 25–35 min</span></div>
+    </div>
+    <div style="flex:1;overflow-y:auto;padding:8px 20px 24px;display:flex;flex-direction:column;gap:18px;">
+      <div style="background:var(--fs-color-surface-container-lowest);border-radius:var(--fs-radius-lg);box-shadow:var(--fs-shadow-sm);padding:16px;display:flex;flex-direction:column;gap:10px;">
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--fs-color-on-surface-weak);">Your order</div>
+        <sc-for list="{{ pick.items }}" as="it" hint-placeholder-count="2">
+          <div style="font-size:16px;line-height:22px;">{{ it }}</div>
+        </sc-for>
+        <div style="height:1px;background:var(--fs-color-border-weak);"></div>
+        <div style="font-size:13px;font-weight:700;color:var(--fs-color-on-surface-weak);">Note for the kitchen</div>
+        <div style="font-size:14px;line-height:20px;padding:10px 12px;border-radius:var(--fs-radius-md);background:var(--fs-color-surface-container);">{{ pick.kitchenNote }}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;flex-direction:column;gap:2px;">
+          <div style="font-size:17px;font-weight:700;">At-home add-ons</div>
+          <div style="font-size:13px;color:var(--fs-color-on-surface-weak);">Small changes once it arrives</div>
+        </div>
+        <sc-for list="{{ addonList }}" as="ad" hint-placeholder-count="2">
+          <button onClick="{{ ad.onToggle }}" style="{{ ad.style }}">
+            <span style="{{ ad.boxStyle }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>
+            <span style="flex:1;font-size:15px;line-height:20px;">{{ ad.t }}</span>
+            <span style="font-size:13px;font-weight:700;color:var(--fs-color-on-surface-weak);">{{ ad.delta }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:0 4px;">
+        <span style="font-size:14px;color:var(--fs-color-on-surface-weak);">Meal total</span>
+        <span style="font-size:17px;font-weight:800;">{{ deliveryKcal }} kcal</span>
+      </div>
+    </div>
+    <div style="padding:12px 20px 34px;border-top:1px solid var(--fs-color-border-weak);">
+      <x-import component-from-global-scope="FatSecretDesignSystem_4aedf5.Button" variant="filled" shape="round" full-width="{{ true }}" onClick="{{ logPick }}" hint-size="100%,56px">Place order · Log to diary</x-import>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- SHEET: can't find it -->
+  <sc-if value="{{ sheetOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;z-index:10;">
+    <div onClick="{{ closeSheet }}" style="position:absolute;inset:0;background:var(--fs-color-scrim);opacity:0.4;"></div>
+    <div style="position:relative;background:var(--fs-color-surface-container-lowest);border-radius:var(--fs-radius-xl) var(--fs-radius-xl) 0 0;padding:12px 20px 36px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--fs-shadow-lg);">
+      <div style="width:36px;height:4px;border-radius:2px;background:var(--fs-color-border-weak);align-self:center;"></div>
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <div style="font-size:20px;font-weight:800;letter-spacing:-0.02em;">Can't find it?</div>
+        <div style="font-size:14px;line-height:20px;color:var(--fs-color-on-surface-weak);">We can still read the menu.</div>
+      </div>
+      <button onClick="{{ goWeb }}" style="display:flex;align-items:center;gap:14px;padding:14px;border-radius:var(--fs-radius-md);border:1px solid var(--fs-color-border-weak);background:transparent;cursor:pointer;text-align:left;color:var(--fs-color-on-surface-strong);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--fs-color-primary)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+        <span style="display:flex;flex-direction:column;gap:2px;"><span style="font-size:15px;font-weight:700;">Use the restaurant's website</span><span style="font-size:13px;color:var(--fs-color-on-surface-weak);">We read their own menu page or PDF</span></span>
+      </button>
+      <button onClick="{{ goScreenshot }}" style="display:flex;align-items:center;gap:14px;padding:14px;border-radius:var(--fs-radius-md);border:1px solid var(--fs-color-border-weak);background:transparent;cursor:pointer;text-align:left;color:var(--fs-color-on-surface-strong);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--fs-color-primary)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"></path></svg>
+        <span style="display:flex;flex-direction:column;gap:2px;"><span style="font-size:15px;font-weight:700;">Share a screenshot</span><span style="font-size:13px;color:var(--fs-color-on-surface-weak);">Capture the menu from Google Maps</span></span>
+      </button>
+      <button onClick="{{ goCameraUnknown }}" style="display:flex;align-items:center;gap:14px;padding:14px;border-radius:var(--fs-radius-md);border:1px solid var(--fs-color-border-weak);background:transparent;cursor:pointer;text-align:left;color:var(--fs-color-on-surface-strong);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--fs-color-primary)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path><circle cx="12" cy="13" r="3"></circle></svg>
+        <span style="display:flex;flex-direction:column;gap:2px;"><span style="font-size:15px;font-weight:700;">Scan a paper menu</span><span style="font-size:13px;color:var(--fs-color-on-surface-weak);">Take a photo at the table</span></span>
+      </button>
+    </div>
+  </div>
+  </sc-if>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const fmt = n => Math.round(n).toLocaleString('en-US');
+const rng = a => a[0] + '–' + a[1];
+const mid = a => (a[0] + a[1]) / 2;
+
+const PERSONAS = [
+  { id:'maya', name:'Maya', initials:'MA', goalLabel:'Losing weight', goal:1800, pGoal:90, pEaten:18, restrict:'Vegetarian', key:'veg', nut:[7,225,31],
+    diary:{ 'Breakfast':['1 mug black coffee, 2 eggs, 1 slice whole grain bread',196], 'Second Breakfast':['1 apple, 12 g almonds',141] } },
+];
+PERSONAS.forEach(p => { p.eaten = Object.values(p.diary).reduce((s, d) => s + d[1], 0); p.left = p.goal - p.eaten; p.pLeft = p.pGoal - p.pEaten; });
+
+const RESTRICT_ASK = { veg:'Keep it fully vegetarian, no meat or fish stock', df:'Leave out butter, cream and cheese', gf:'Keep it strictly gluten-free' };
+const DEFAULT_ADDONS = [['Add a side salad from home', 40], ['Use half the sauce', -60]];
+
+// id, name, items, kcal, protein, flags, mood, size, share, why, tweaks, ask, waiter, conf, addons?
+const C = (id,name,items,k,p,flags,mood,size,share,why,tweaks,ask,waiter,conf,addons) => ({id,name,items,k,p,flags,mood,size,share,why,tweaks,ask,waiter,conf,addons:addons||DEFAULT_ADDONS});
+
+const VENUES = {
+  einstein: { name:"Einstein's 251", cuisine:'Brunch café', dist:'0.4 km', found:false, site:'einsteins251.com.au', combos:[
+    C('e1','Middle Eastern shakshuka',['Middle Eastern shakshuka','Flat bread on the side'],[480,600],[22,28],'veg gf','comfort','normal',false,'Eggs in a spiced tomato sauce, filling and vegetarian',['Flat bread on the side','Light on the feta'],'Is the shakshuka cooked with any meat stock?',['Serve the flat bread on the side','Go light on the feta'],'High'),
+    C('e2','Haloumi breakfast',['Haloumi breakfast','Sourdough, avocado, 2 poached eggs'],[650,780],[30,36],'veg gf','treat','very',false,'A big plate with protein from eggs and haloumi',['Gluten-free bread option','Half the haloumi'],'Is the haloumi fried in a shared fryer?',['Use the gluten-free bread','Just half the haloumi, please'],'High'),
+    C('e3','Protein breakfast',['Protein breakfast','Chicken, veggies, avocado, 2 eggs'],[600,720],[50,58],'gf df','fresh','very',false,'The highest-protein plate on the menu',['Skip the chorizo','Extra seasonal veggies'],'Is the chicken cooked in butter?',['Leave off the chorizo','Add extra veggies instead'],'High'),
+    C('e4','Falafel pita pocket',['Falafel pita pocket','Chop chop salad'],[520,640],[16,20],'veg df','fresh','normal',false,'Falafel and salad with herb tahini',['Tahini on the side','Extra salad'],'Are the falafels fried or baked?',['Put the tahini on the side','Add extra salad'],'High'),
+    C('e5','Chicken BLAT pita pocket',['Chicken BLAT pita pocket'],[580,700],[36,42],'df','comfort','normal',false,'Seasoned chicken with avocado in a pita',['Aioli on the side','Hold the bacon'],'Does the aioli contain any dairy?',['Put the aioli on the side','Leave out the bacon'],'High'),
+    C('e6','Porridge with fruit and nuts',['Porridge','Fruit, roasted nuts & honey'],[380,460],[10,14],'veg df','comfort','light',false,'Light and warming if you are not very hungry',['Made with plant milk','Honey on the side'],'Can the porridge be made with oat milk?',['Make it with oat milk','Honey on the side'],'Medium'),
+    C('e7','Reuben sandwich on gluten-free bread',['Reuben sandwich (GFO)'],[620,760],[34,40],'gf','treat','normal',false,'A classic treat with plenty of protein',['Gluten-free bread','Dressing on the side'],'Is the gluten-free bread toasted separately?',['Use the gluten-free bread','Russian dressing on the side'],'Medium'),
+    C('e8','Quinoa salad with chips to share',['Quinoa salad','Bowl of chips, shared'],[520,640],[14,18],'veg df gf','treat','normal',true,'Fresh salad with a shared bowl of chips',['Two plates to share','Dressing on the side'],'Are the chips cooked in a shared fryer?',['Bring two plates to share','Dressing on the side'],'Medium'),
+  ]},
+  souper: { name:'Souper Kitchen & Bistro', cuisine:'Eastern European', dist:'0.9 km', found:false, site:'souper.org.au', combos:[
+    C('s1','Chicken salad with mustard dressing',['Chicken salad','Mustard dressing'],[380,480],[30,36],'gf df','fresh','light',false,'Lean chicken with a tangy dressing',['Dressing on the side','Extra greens'],'Is the dressing made with any flour?',['Put the dressing on the side','Add extra greens'],'High'),
+    C('s2','Grilled chicken wrap',['Grilled chicken wrap'],[480,580],[32,38],'df','fresh','normal',false,'Grilled chicken in a soft tortilla',['Sauce on the side','Extra salad inside'],'Is the chicken grilled or crumbed?',['Put the sauce on the side','Add extra salad'],'High'),
+    C('s3','Chicken shashlik with salad',['Chicken shashlik, 2 pieces','Salad instead of chips'],[560,700],[48,56],'gf df','comfort','very',false,'Two skewers with lots of protein',['Salad instead of chips','Marinade sauce on the side'],'Is the marinade gluten-free?',['Swap the chips for salad','Sauce on the side'],'High'),
+    C('s4','Mushroom zrazy with carrot salad',['Mushroom zrazy, 2 pieces','Korean carrot salad'],[520,640],[10,14],'veg df','comfort','normal',false,'Potato pastries with mushrooms, a comfort classic',['Carrot salad instead of chips','Sauce on the side'],'Are the zrazy fried or baked?',['Carrot salad on the side','Sauce on the side'],'Medium'),
+    C('s5','Shakshuka with three eggs',['Shakshuka, three eggs','Toasted bread on the side'],[480,600],[22,26],'veg gf df','comfort','normal',false,'Eggs in house sauce, vegetarian and filling',['Bread on the side','Extra vegetables'],'Is the house sauce made with any stock?',['Serve the bread on the side','Add extra vegetables'],'High'),
+    C('s6','Borscht with baba ganoush',['Borscht','Baba ganoush'],[300,400],[8,12],'veg df gf','fresh','light',false,'A light bowl full of vegetables',['Vegetable stock borscht','Half the bread'],'Is the borscht made with meat stock?',['Use the vegetable borscht','Just a little bread'],'Medium'),
+    C('s7','Chicken pelmeni to share with Olivier salad',['Chicken pelmeni, large serve to share','Olivier salad to share'],[700,850],[34,40],'df','treat','very',true,'A big sharing plate of dumplings',['Two plates to share','Condiments on the side'],'How many dumplings come in the large serve?',['Bring two plates to share','Condiments on the side'],'Medium'),
+  ]},
+  mcd: { name:"McDonald's", cuisine:'Fast food', dist:'1.3 km', found:true, site:'mcdonalds.com.au', combos:[
+    C('m1','McChicken with garden salad',['McChicken','Garden salad instead of fries'],[520,600],[22,26],'df','comfort','normal',false,'Swapping fries for salad saves a lot of calories',['Garden salad instead of fries','Less mayo'],'Can I swap the fries for a garden salad?',['Swap the fries for a garden salad','Go light on the mayo'],'High'),
+    C('m2','6 Chicken McNuggets with garden salad',['6 Chicken McNuggets','Garden salad'],[330,400],[16,19],'df','comfort','light',false,'A small, satisfying meal',['Sweet chilli sauce instead of creamy dips','Water or diet drink'],'Which dipping sauces are dairy-free?',['Sweet chilli sauce, please','Garden salad instead of fries'],'High'),
+    C('m3','Quarter Pounder, no bun, with garden salad',['Quarter Pounder, no bun','Garden salad'],[380,460],[28,32],'gf df','comfort','normal',false,'Beef and salad, without the bun',['No bun','No cheese'],'Can you serve it without the bun?',['No bun, please','No cheese'],'Medium'),
+    C('m4','Big Mac as a salad, no bun',['Big Mac, no bun','Garden salad'],[420,500],[24,28],'gf','treat','normal',false,'The Big Mac flavour with fewer calories',['No bun','Big Mac sauce on the side'],'Is the Big Mac sauce gluten-free?',['No bun, please','Sauce on the side'],'Medium'),
+    C('m5','Garden salad with small fries',['Garden salad','Small fries'],[300,380],[4,6],'veg df','fresh','light',false,'The lightest vegetarian option',['Dressing on the side','Small fries only'],'Is the salad dressing vegetarian?',['Dressing on the side','Small fries, please'],'High'),
+    C('m6','Hotcakes with syrup on the side',['Hotcakes','Syrup on the side'],[450,560],[9,12],'veg','treat','normal',false,'A sweet treat, served at breakfast',['Syrup on the side','No butter'],'Are hotcakes still being served?',['Syrup on the side','No butter, please'],'High'),
+    C('m7','Garden salad with apple slices',['Garden salad','Apple slices'],[150,220],[3,5],'veg df gf','fresh','light',false,'A very light option if you are not hungry',['Dressing on the side'],'Is the dressing gluten-free?',['Dressing on the side'],'Medium'),
+    C('m8','20 Chicken McNuggets to share',['20 Chicken McNuggets, shared','Medium fries, shared'],[620,720],[26,32],'df','treat','very',true,'A sharing box split between two',['Split onto two trays','Sweet chilli sauce'],'Which sauces are dairy-free?',['Split it onto two trays','Sweet chilli sauce, please'],'High'),
+  ]},
+};
+const MAC = { // [fat % of kcal, fibre g]
+  e1:[.38,6], e2:[.48,5], e3:[.42,8], e4:[.36,9], e5:[.40,5], e6:[.28,6], e7:[.42,4], e8:[.40,7],
+  s1:[.45,4], s2:[.32,4], s3:[.36,4], s4:[.38,7], s5:[.45,5], s6:[.40,8], s7:[.40,3],
+  m1:[.42,3], m2:[.50,3], m3:[.58,3], m4:[.62,3], m5:[.45,5], m6:[.22,2], m7:[.20,5], m8:[.48,4],
+};
+const QUAL = {
+  e1:['Keeps you full','Iron-rich'], e2:['Keeps you full','Good protein'], e3:['Keeps you full','Good protein'], e4:['Keeps you full','Iron-rich'],
+  e5:['Keeps you full','Good protein'], e6:['Light meal','High fibre'], e7:['Keeps you full','Good protein'], e8:['Satisfying','Iron-rich'],
+  s1:['Light meal','Good protein'], s2:['Keeps you full','Good protein'], s3:['Keeps you full','Good protein'], s4:['Satisfying','High fibre'],
+  s5:['Keeps you full','Iron-rich'], s6:['Light meal','High fibre'], s7:['Satisfying','Good protein'],
+  m1:['Satisfying','Good protein'], m2:['Light meal','Good protein'], m3:['Keeps you full','Iron-rich'], m4:['Satisfying','Good protein'],
+  m5:['Light meal','High fibre'], m6:['Less filling','Low protein'], m7:['Light meal','High fibre'], m8:['Satisfying','Good protein'],
+};
+const GENERIC = {
+  e1:[['Shakshuka (eggs in tomato sauce)',330,18],['Feta cheese, 30 g',80,4],['Flat bread, 1 piece',150,5]],
+  e2:[['Poached egg, 2',150,13],['Grilled haloumi, 60 g',190,13],['Sourdough toast, 1 slice',130,5],['Avocado, half',120,1.5]],
+  e3:[['Grilled chicken breast, 120 g',200,37],['Poached egg, 2',150,13],['Avocado, half',120,1.5],['Roasted vegetables, 1 cup',110,3]],
+  e4:[['Falafel, 4 pieces',230,9],['Pita bread, 1',165,5],['Mixed salad, 1 cup',30,1.5],['Tahini, 1 tbsp',90,2.6]],
+  e5:[['Grilled chicken breast, 120 g',200,37],['Pita bread, 1',165,5],['Bacon, 2 rashers',90,6],['Avocado, half',120,1.5]],
+  e6:[['Porridge with milk, 1 cup',210,8],['Mixed berries, half cup',40,0.5],['Almonds, 12 g',69,2.5],['Honey, 1 tsp',21,0]],
+  e7:[['Pastrami, 60 g',90,12],['Swiss cheese, 1 slice',110,8],['Gluten-free bread, 2 slices',220,3],['Sauerkraut, quarter cup',7,0.3]],
+  e8:[['Quinoa salad, 1 cup',220,7],['Hot chips, half serve',300,3.5]],
+  s1:[['Chicken salad, 1 bowl',300,30],['Mustard dressing, 1 tbsp',60,0.3]],
+  s2:[['Grilled chicken wrap',480,32]],
+  s3:[['Chicken skewers, 2',380,48],['Garden salad, 1 cup',30,1.5]],
+  s4:[['Potato croquette with mushroom, 2',420,8],['Carrot salad, half cup',120,1]],
+  s5:[['Shakshuka (eggs in tomato sauce)',330,18],['Toast, 1 slice',100,3.5]],
+  s6:[['Beetroot soup, 1 bowl',180,4],['Baba ganoush, quarter cup',120,2]],
+  s7:[['Chicken dumplings, half serve',480,28],['Potato salad with mayonnaise, half cup',180,3]],
+};
+const GENERIC_FOODS = (() => { const m = {}; Object.values(GENERIC).flat().forEach(([n, k, p]) => { m[n] = [n, k, p]; }); return Object.values(m); })();
+const SCAN_MENU = [['Chicken Salad',''],['Grilled Chicken Wrap','24'],['Chicken Shashlik','42'],['Mushroom Zrazy',''],['Shakshuka','28'],['Borscht',''],['Chicken Pelmeni','36'],['Schnitzel & Chips','36']];
+const MEALS = [['Breakfast','var(--fs-color-premium)'],['Second Breakfast','var(--fs-color-warning)'],['Lunch','var(--fs-color-info)'],['Dinner','var(--fs-color-critical)'],['Snacks/Other','var(--fs-ref-purple-50)']];
+const CONF = {
+  High:{ bg:'var(--fs-color-success-container)', fg:'var(--fs-color-on-success-container)', d:'The dish closely matches the menu description.' },
+  Medium:{ bg:'var(--fs-color-warning-container)', fg:'var(--fs-color-on-warning-container)', d:'Portions can vary, so ask about the serving size.' },
+  Low:{ bg:'var(--fs-color-critical-container)', fg:'var(--fs-color-on-critical-container)', d:'Preparation is unclear from the menu. Ask before ordering.' },
+};
+const SOURCE = { upload:'From your menu file', library:'Matched in fatsecret · full nutrition', scan:'From your menu photo', website:"From the restaurant's website", screenshot:'From your screenshot' };
+const READING = {
+  photo:{ title:'Reading your photo', steps:['Reading the photo','Found 8 dishes','Reading nutrition'] },
+  upload:{ title:'Reading your menu file', steps:['Opening your file','Found 8 dishes','Matching to generic foods'] },
+  scan:{ title:'Reading your menu', steps:['Reading the menu','Found 8 dishes','Reading nutrition'] },
+  website:{ title:'Checking their website', steps:['Opening souper.org.au','Found the menu PDF','Reading nutrition'] },
+  screenshot:{ title:'Reading your screenshot', steps:['Reading the screenshot','Found 8 dishes','Reading nutrition'] },
+};
+
+class Component extends DCLogic {
+  state = { screen:'diary', addOpen:true, personaId:'maya', camMode:'food', venueId:'einstein', venueChosen:false, fileMode:'upload', fileSel:0, scanned:false, dbQuery:'', from:'picks', source:'library', want:'usual', seed:0, hunger:'normal', mood:'fresh', sharing:false, mode:'dine', pickId:null, addons:{}, sheet:false, query:'', step:0, logged:null, toast:false };
+
+  componentWillUnmount() { clearInterval(this.t); clearTimeout(this.tt); }
+  go(screen, extra) { this.setState({ screen, sheet:false, ...(extra || {}) }); }
+  startReading(source) {
+    clearInterval(this.t);
+    this.setState(s => ({ webMiss:false, screen:'reading', venueId: s.venueChosen ? s.venueId : 'souper', source, step:0, sheet:false }));
+    this.t = setInterval(() => {
+      const s = this.state.step + 1;
+      if (s > 4) { clearInterval(this.t); const fv = VENUES[this.state.venueId].found; const miss = this.state.venueId === 'souper' && this.state.source === 'website'; this.setState(miss ? { screen: 'dbsearch', scanned: false, webMiss: true, dbQuery: '' } : { screen: fv ? 'prefs' : 'menuresult', scanned: true, webMiss: false, dbQuery: '' }); } else this.setState({ step:s });
+    }, 650);
+  }
+  ranked(p, v) {
+    const st = this.state;
+    let pool = v.combos.filter(c => c.flags.split(' ').includes(p.key));
+    if (st.want === 'veg') { const vg = pool.filter(c => c.flags.includes('veg')); if (vg.length >= 3) pool = vg; }
+    return pool.map(c => {
+      const kv = this.kOf(c), budget = p.left / 2;
+      let s = kv <= budget ? 3 - (budget - kv) / 250 : kv <= p.left ? 1 - (kv - budget) / 150 : -6;
+      if (st.want === 'protein') s += mid(c.p) / mid(c.k) * 25;
+      if (st.want === 'lower') s += (p.left - mid(c.k)) / 150;
+      if (st.want === 'balanced' && mid(c.p) / mid(c.k) > 0.04 && mid(c.p) / mid(c.k) < 0.09) s += 1.5;
+      if (st.want === 'surprise') s += ((c.id.charCodeAt(1) * 7 + this.state.seed) % 10) / 2;
+      if (c.mood === st.mood) s += 2;
+      if (st.mood === 'energy') s += mid(c.p) / mid(c.k) * 20;
+      if (st.mood === 'open' && c.mood === 'treat') s += 1;
+      if (c.size === st.hunger) s += 1.5;
+      else if ((st.hunger === 'light' && c.size === 'very') || (st.hunger === 'very' && c.size === 'light')) s -= 1.5;
+      if (st.sharing && c.share) s += 2.5;
+      if (!st.sharing && c.share) s -= 2;
+      s += Math.min(1.5, c.p[1] / p.pLeft * 1.5) * (p.pLeft > 60 ? 1.5 : 1);
+      return { c, s };
+    }).sort((a, b) => b.s - a.s).slice(0, 3).map(x => x.c);
+  }
+  nmOf() { const st = this.state; return VENUES[st.venueId].found ? 'fatsecret' : (st.venueId === 'einstein' && ['website','screenshot','upload','photo'].includes(st.source)) ? 'restaurant' : 'generic'; }
+  kOf(c) { return this.nmOf() === 'generic' && GENERIC[c.id] ? GENERIC[c.id].reduce((s, g) => s + g[1], 0) : Math.round(mid(c.k) / 10) * 10; }
+  pOf(c) { return this.nmOf() === 'generic' && GENERIC[c.id] ? Math.round(GENERIC[c.id].reduce((s, g) => s + g[2], 0)) : Math.round(mid(c.p)); }
+  logCurrent(pick, persona) {
+    const deltas = this.state.mode === 'delivery' ? pick.addons.reduce((s, a, i) => s + (this.state.addons[i] ? a[1] : 0), 0) : 0;
+    clearTimeout(this.tt);
+    this.setState({ screen:'diary', addOpen:false, sheet:false, toast:true, logged:{ food:pick.name, kcal:Math.round((pick.kv ?? mid(pick.k)) + deltas), p:Math.round(pick.pv ?? mid(pick.p)) } });
+    this.tt = setTimeout(() => this.setState({ toast:false }), 3500);
+  }
+
+  renderVals() {
+    const st = this.state;
+    const persona = PERSONAS.find(p => p.id === st.personaId);
+    const venue = VENUES[st.venueId];
+    const lib = st.source === 'library';
+    const nm = this.nmOf();
+    const kOf = c => this.kOf(c);
+    const pOf = c => this.pOf(c);
+    const budget = Math.round(persona.left / 2 / 10) * 10;
+    const srcLabel = { fatsecret: 'fatsecret database · full nutrition', restaurant: 'Nutrition from ' + venue.name, generic: 'Matched to foods in fatsecret' }[nm];
+    const top = this.ranked(persona, venue);
+    const ranks = ['Top pick', '2nd pick', '3rd pick'];
+    const confOf = c => {
+      const cf = CONF[c.conf];
+      return { confLabel: c.conf + ' confidence',
+        confStyle: `font-size:12px;font-weight:700;padding:3px 8px;border-radius:var(--fs-radius-sm);background:${cf.bg};color:${cf.fg};white-space:nowrap;`,
+        confDesc: cf.d };
+    };
+    const decorate = (c, i) => {
+      const kv = kOf(c), rest = persona.left - kv;
+      const fit = kv <= budget ? `Uses ${fmt(kv)} of your ${fmt(persona.left)} kcal left, with ${fmt(rest)} still to go today.` : rest >= 0 ? `Uses ${fmt(kv)} of your ${fmt(persona.left)} kcal left, so keep dinner light.` : `Goes ${fmt(-rest)} kcal over your ${fmt(persona.left)} kcal left.`;
+      const after = persona.left - kOf(c);
+      const waiter = [RESTRICT_ASK[persona.key], ...c.waiter].slice(0, 3).map((t, j) => ({ n: j + 1, t }));
+      return { ...c, ...confOf(c), rankLabel: ranks[i], kcal: fmt(kOf(c)), prot: pOf(c), kv: kOf(c), pv: pOf(c),
+        macros: (() => { const kv = kOf(c), pv = pOf(c), [fp, fib] = MAC[c.id] || [.4, 3]; const fat = Math.round(kv * fp / 9); const carb = Math.max(0, Math.round((kv - pv * 4 - fat * 9) / 4));
+          return [[fmt(kv), 'KCAL'], [pv + 'g', 'PROT'], [carb + 'g', 'CARB'], [fat + 'g', 'FAT'], [fib + 'g', 'FIBER']].map(([v, l]) => ({ v, l })); })(),
+        qual: (QUAL[c.id] || []).map(t => { const neg = t === 'Less filling' || t === 'Low protein'; return { t,
+          style: 'font-size:12px;font-weight:700;line-height:16px;padding:3px 8px;border-radius:var(--fs-radius-sm);white-space:nowrap;background:var(--fs-color-' + (neg ? 'surface-container-high' : 'primary-container') + ');color:var(--fs-color-on-surface-strong);' }; }), whyLine: c.why + '. ' + fit,
+        dayAfter: persona.eaten + kOf(c),
+        afterLabel: after >= 0 ? `About ${fmt(after)} kcal left after this` : `About ${fmt(-after)} kcal over your goal`,
+        desc: c.why + '.',
+        cardStyle: 'display:flex;flex-direction:column;gap:10px;padding:' + (i === 0 ? '20px' : '18px') + ';cursor:pointer;text-align:left;border-radius:var(--fs-radius-lg);color:var(--fs-color-on-surface-strong);' + (i === 0 ? 'border:2px solid var(--fs-color-primary);background:var(--fs-color-surface-container-lowest);box-shadow:var(--fs-shadow-md);' : 'border:none;background:var(--fs-color-surface-container-lowest);box-shadow:var(--fs-shadow-sm);'),
+        rankStyle: i === 0 ? 'align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:4px 10px;border-radius:var(--fs-radius-pill);background:var(--fs-color-primary);color:var(--fs-color-on-primary);' : 'font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fs-color-on-surface-weak);',
+        nameStyle: 'font-weight:700;letter-spacing:-0.01em;' + (i === 0 ? 'font-size:21px;line-height:27px;' : 'font-size:17px;line-height:23px;'),
+        arrowStyle: 'width:40px;height:40px;flex-shrink:0;border-radius:50%;display:flex;align-items:center;justify-content:center;' + (i === 0 ? 'background:var(--fs-color-primary);color:var(--fs-color-on-primary);' : 'border:1.5px solid var(--fs-color-border-weak);color:var(--fs-color-primary);'),
+        waiterList: waiter, kitchenNote: waiter.map(w => w.t).join('. ') + '.',
+        onOpen: () => this.go('detail', { pickId: c.id, addons: {}, from: 'picks' }) };
+    };
+    const picks = top.map(decorate);
+    const allPicks = venue.combos.map(c => { const i = top.indexOf(c); const d = decorate(c, i < 0 ? 0 : i); if (i < 0) d.rankLabel = 'From the menu'; return d; });
+    const pick = allPicks.find(p => p.id === st.pickId) || picks[0];
+
+    // diary
+    const logged = st.logged;
+    const meals = MEALS.map(([m, col]) => {
+      const d = persona.diary[m] || (m === 'Lunch' && logged ? [logged.food, logged.kcal] : null);
+      const isNew = m === 'Lunch' && !!logged;
+      return { meal: m, color: col, isBreakfast: m === 'Breakfast', isSecond: m === 'Second Breakfast', isLunch: m === 'Lunch', isDinner: m === 'Dinner', isTea: m === 'Afternoon Tea', isSnack: m === 'Snacks/Other', has: !!d, food: d ? d[0] : '', kcal: d ? fmt(d[1]) : '',
+        iconStyle: `width:22px;height:22px;border-radius:50%;border:3px solid ${col};flex-shrink:0;`,
+        foodStyle: `font-size:14px;line-height:20px;padding-left:36px;color:${isNew ? 'var(--fs-color-primary)' : 'var(--fs-color-on-surface-weak)'};font-weight:${isNew ? 600 : 400};` };
+    });
+    const total = persona.eaten + (logged ? logged.kcal : 0);
+    const prot = persona.pEaten + (logged ? logged.p : 0);
+    const fat = 19 + (logged ? Math.round(logged.kcal * 0.38 / 9) : 0);
+    const leftNow = persona.goal - total;
+
+    const camTitles = {
+      food:['Smart Food Scan','Take a photo of your food to identify ingredients. Ensure the image is clear and all food items are within frame.'],
+      menu:['Scan a menu','Take a photo of a restaurant menu to get 3 picks that fit your day. Keep the whole menu in frame.'],
+      barcode:['Scan Barcode','Line up the barcode inside the frame.'],
+    };
+    const tabStyle = on => `height:38px;border:none;border-radius:var(--fs-radius-pill);cursor:pointer;font-size:14px;font-weight:700;background:${on ? 'var(--fs-color-on-surface-weak)' : 'transparent'};color:${on ? 'var(--fs-color-surface-container-lowest)' : 'var(--fs-color-on-surface-weak)'};`;
+    const segStyle = on => `height:40px;border:none;border-radius:var(--fs-radius-pill);cursor:pointer;font-size:14px;font-weight:700;background:${on ? 'var(--fs-color-surface-container-lowest)' : 'transparent'};color:var(--fs-color-on-surface-strong);box-shadow:${on ? 'var(--fs-shadow-sm)' : 'none'};`;
+    const rd = READING[st.source] || READING.scan;
+    const q = st.query.trim().toLowerCase();
+    const libVenues = ['einstein', 'souper', 'mcd'].filter(id => !q || VENUES[id].name.toLowerCase().includes(q));
+
+    const pref = (key, title, opts) => ({ title, options: opts.map(([label, val]) => ({ label, selected: st[key] === val,
+      chipProps: { style: st[key] === val
+        ? { fontSize: 13, background: 'var(--fs-color-premium-container)', border: '1px solid var(--fs-color-premium)', color: 'var(--fs-color-on-premium-container)' }
+        : { fontSize: 13 } }, onToggle: () => this.setState(s => ({ [key]: val, seed: val === 'surprise' ? s.seed + 3 : s.seed })) })) });
+    const jumps = [
+      ['1','Diary + add food','', () => this.go('diary', { addOpen:true, logged:null, toast:false })],
+      ['2','Find restaurant','', () => this.go('search', { query:'' })],
+      ['2a','Scan a menu','', () => this.go('camera', { camMode:'menu', venueId:'mcd', venueChosen:true, source:'library' })],
+      ['2b','Reading menu','', () => this.startReading('scan')],
+      ['2c','Search database','', () => this.go('dbsearch', { venueId:'mcd', venueChosen:true, source:'library', dbQuery:'' })],
+      ['2d','Take a photo','', () => this.go('pickfile', { venueId:'einstein', venueChosen:true, fileMode:'photo', fileSel:0, scanned:false })],
+      ['2e','Menu result','', () => this.go('menuresult', { venueId:'einstein', venueChosen:true, source:'website', scanned:true, dbQuery:'' })],
+      ['3','Quick preferences','', () => this.go('prefs')],
+      ['4','Top 3 picks','', () => this.go('picks')],
+      ['5','Pick detail','', () => this.go('detail', { pickId: picks[0].id })],
+      ['6','Show the waiter','', () => this.go('waiter', { pickId: st.pickId || picks[0].id })],
+      ['7','Delivery mode','Mock', () => this.go('delivery', { mode:'delivery', pickId: st.pickId || picks[0].id })],
+      ['8','Logged to diary','Mock', () => this.logCurrent(pick, persona)],
+    ];
+    const jumpScreen = ['diary','search','camera','reading','dbsearch','pickfile','menuresult','prefs','picks','detail','waiter','delivery','logged'];
+    const curJump = st.screen === 'diary' && logged ? 'logged' : st.screen;
+
+    return {
+      is: { pickfile: st.screen === 'pickfile', menuresult: st.screen === 'menuresult', dbsearch: st.screen === 'dbsearch', diary: st.screen === 'diary', camera: st.screen === 'camera', reading: st.screen === 'reading', search: st.screen === 'search', prefs: st.screen === 'prefs', picks: st.screen === 'picks', detail: st.screen === 'detail', waiter: st.screen === 'waiter', delivery: st.screen === 'delivery' },
+      persona: { ...persona, leftFmt: fmt(persona.left) },
+      personaList: PERSONAS.map(p => ({ name: p.name, sub: `${p.goalLabel} · ${p.restrict} · ${fmt(p.left)} kcal left`,
+        style: `display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:10px 12px;border:none;border-radius:var(--fs-radius-md);cursor:pointer;text-align:left;font-size:14px;color:var(--fs-color-on-surface-strong);background:${p.id === st.personaId ? 'var(--fs-color-surface-container-lowest)' : 'transparent'};box-shadow:${p.id === st.personaId ? 'var(--fs-shadow-sm)' : 'none'};`,
+        onClick: () => this.setState({ personaId: p.id, pickId: null, logged: null, toast: false }) })),
+      jumpList: jumps.map(([num, label, tag, fn], i) => ({ num, label, tag, onClick: fn,
+        style: `display:flex;align-items:center;gap:4px;padding:9px 12px;border:none;border-radius:var(--fs-radius-md);cursor:pointer;text-align:left;font-size:14px;color:var(--fs-color-on-surface-strong);background:${jumpScreen[i] === curJump ? 'var(--fs-color-surface-container-lowest)' : 'transparent'};box-shadow:${jumpScreen[i] === curJump ? 'var(--fs-shadow-sm)' : 'none'};` })),
+      week: ['M','T','W','T','F','S','S'].map((l, i) => ({ l, style: `width:36px;height:36px;border-radius:50%;${i === 0 ? 'background:var(--fs-color-primary);' : 'border:1.5px solid var(--fs-color-border-weak);'}` })),
+      diary: { meals, totalFmt: fmt(total), cols: [['Fat', fat + 'g'], ['Fiber', persona.nut[0] + 'g'], ['Carbs', persona.nut[2] + 'g'], ['Prot', prot + 'g'], ['Calories', fmt(total)]].map(([l, v]) => ({ l, v })), nutri: `Fiber: ${persona.nut[0]}g, Sod: ${fmt(persona.nut[1])}mg, Carbs: ${persona.nut[2]}g, Prot: ${prot}g`,
+        leftLabel: leftNow >= 0 ? `${fmt(leftNow)} kcal left` : `${fmt(-leftNow)} kcal over` },
+      toast: st.toast, addOpen: st.addOpen,
+      openAdd: () => this.setState({ addOpen: true }), closeAdd: () => this.setState({ addOpen: false }),
+      openSmartScan: () => this.go('camera', { camMode: 'food' }),
+      goDiary: () => this.go('diary', { addOpen: true }),
+      cam: { hint: 'Snap the menu or tap magnifier', title: camTitles[st.camMode][0], desc: camTitles[st.camMode][1], isMenu: st.camMode === 'menu', showTabs: st.camMode !== 'menu', isBarcode: st.camMode === 'barcode' },
+      closeCamera: () => st.camMode === 'menu' ? this.go(st.venueChosen && !venue.found ? 'dbsearch' : 'search') : this.go('diary', { addOpen: true }),
+      camTabs: [['Scan Food','food'],['Scan Barcode','barcode']].map(([label, m]) => ({ label, style: tabStyle(st.camMode === m), onClick: () => this.setState({ camMode: m }) })),
+      harborMenu: (st.venueChosen && st.venueId !== 'souper' ? venue.combos.slice(0, 8).map(c => [c.items[0].split(',')[0], '']) : SCAN_MENU).map(([n, pr]) => ({ n, pr })),
+      scanTitle: st.venueChosen ? venue.name : 'Souper Kitchen & Bistro',
+      camSearch: () => st.venueChosen ? this.go('dbsearch', { dbQuery: '', source: venue.found ? 'library' : 'scan' }) : this.go('search', { query: '' }),
+      goCameraVenue: () => this.go('camera', { camMode: 'menu' }),
+      dbQuery: st.dbQuery, onDbQuery: e => this.setState({ dbQuery: e.target.value }),
+      ...(() => {
+        const dq = st.dbQuery.trim().toLowerCase();
+        const list = allPicks.filter(c => !dq || (c.name + ' ' + c.items.join(' ')).toLowerCase().includes(dq));
+        const gen = !venue.found;
+        const pre = gen && !st.scanned;
+        if (pre) {
+          const foods = dq ? GENERIC_FOODS.filter(f => f[0].toLowerCase().includes(dq)) : [];
+          return { dbBanner: st.webMiss ? 'No menu found on ' + venue.site + '. Take a photo of the menu, or search for foods in the fatsecret database.' : "This restaurant's menu isn't in fatsecret yet.", dbMatch: false, dbGeneric: true, dbPre: true, dbShowPicks: false, dbSub: '', dbPlaceholder: 'Search for foods, e.g. eggs', dbCount: dq ? foods.length + ' generic foods' : 'Type a food to search', dbEmpty: !!dq && foods.length === 0,
+            dbItems: foods.map(([n, k, p]) => ({ name: n, match: '', meta: k + ' kcal · ' + p + ' g protein', tag: 'Generic food',
+              tagStyle: 'align-self:flex-start;font-size:12px;font-weight:700;padding:2px 8px;border-radius:var(--fs-radius-sm);background:var(--fs-color-surface-container-high);color:var(--fs-color-on-surface-strong);',
+              onClick: () => this.logCurrent({ name: n, k: [k, k], p: [p, p], addons: [] }, persona) })) };
+        }
+        return { dbPre: false, dbShowPicks: true, dbGeneric: gen, dbMatch: nm === 'generic', dbSub: srcLabel, dbBanner: nm === 'restaurant' ? 'Calories and macros come from ' + venue.name + "'s own menu." : st.scanned ? 'Each dish is matched to a generic food in the fatsecret database.' : "This restaurant's menu isn't in fatsecret yet.", dbPlaceholder: gen ? 'Search for foods, e.g. eggs' : 'Search this menu', dbCount: gen ? (st.scanned ? list.length + ' dishes found on your menu' : list.length + ' generic matches') : list.length + ' menu items', dbEmpty: list.length === 0,
+          dbItems: list.map(c => {
+            const okR = c.flags.split(' ').includes(persona.key);
+            const okK = kOf(c) <= persona.left;
+            const tag = !okR ? 'Not ' + persona.restrict.toLowerCase() : okK ? 'Fits your day' : 'Over what you have left';
+            const tone = !okR ? 'critical' : okK ? 'success' : 'warning';
+            return { name: nm === 'generic' ? c.items[0] : c.name, match: nm === 'generic' ? 'Generic: ' + (GENERIC[c.id] || []).map(g => g[0] + ' (' + g[1] + ')').join(' + ') : '', meta: c.kcal + ' kcal · ' + c.prot + ' g protein', tag,
+              tagStyle: 'align-self:flex-start;font-size:12px;font-weight:700;padding:2px 8px;border-radius:var(--fs-radius-sm);background:var(--fs-color-' + tone + '-container);color:var(--fs-color-on-' + tone + '-container);',
+              onClick: () => this.go('detail', { pickId: c.id, addons: {}, from: st.screen }) };
+          }) };
+      })(),
+      shutter: () => { if (st.camMode === 'menu') this.startReading(st.venueChosen && !venue.found ? 'photo' : 'scan'); },
+      goSearch: () => this.go('search', { query: '' }),
+      goCameraMenu: () => this.go('camera', { camMode: 'menu' }),
+      venueWeb: () => this.startReading('website'), venueFile: () => this.go('pickfile', { fileMode: 'upload', fileSel: 0 }), venueShot: () => ['einstein','souper'].includes(st.venueId) ? this.go('camera', { camMode: 'menu' }) : this.go('pickfile', { fileMode: 'photo', fileSel: 0 }),
+      goCameraUnknown: () => this.go('camera', { camMode: 'menu', venueChosen: false, venueId: 'souper' }),
+      reading: { title: rd.title, sub: venue.name + ' · this takes a few seconds', pct: Math.min(100, st.step * 25),
+        steps: (st.source === 'website' ? (st.venueId === 'souper' ? ['Opening ' + venue.site, 'No menu found on their website', 'Looking for other ways to get the menu'] : ['Opening ' + venue.site, 'Found the menu with nutrition', 'Reading calories and macros']) : [rd.steps[0], rd.steps[1], nm === 'restaurant' ? 'Reading calories and macros' : nm === 'fatsecret' ? 'Matching to fatsecret' : 'Matching to generic foods']).concat(venue.found ? ['Ranking picks for ' + persona.name] : [st.venueId === 'souper' && st.source === 'website' ? 'Showing your options' : 'Building your menu']).map((label, i) => {
+          const done = st.step > i;
+          return { label, dotStyle: `width:24px;height:24px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:${done ? 'var(--fs-color-primary)' : 'var(--fs-color-surface-container-high)'};color:${done ? 'var(--fs-color-on-primary)' : 'transparent'};transition:background 200ms;`,
+            textStyle: `color:${done ? 'var(--fs-color-on-surface-strong)' : 'var(--fs-color-on-surface-weak)'};font-weight:${done ? 600 : 400};` };
+        }) },
+      query: st.query, onQuery: e => this.setState({ query: e.target.value }),
+      venueList: libVenues.map(id => ({ name: VENUES[id].name, initial: VENUES[id].name[0], meta: `${VENUES[id].cuisine} · ${VENUES[id].dist}`, status: VENUES[id].found ? 'Menu found' : 'Menu not found', statusStyle: 'font-size:12px;font-weight:600;color:' + (VENUES[id].found ? 'var(--fs-color-primary)' : 'var(--fs-color-on-surface-weak)') + ';', onClick: () => VENUES[id].found ? this.go('camera', { camMode:'menu', venueId: id, venueChosen: true, scanned: false, source: 'library' }) : this.go('dbsearch', { venueId: id, venueChosen: true, scanned: false, webMiss: false, source: 'scan', dbQuery: '' }) })),
+      noVenues: libVenues.length === 0,
+      sheetOpen: st.sheet, openSheet: () => this.setState({ sheet: true }), closeSheet: () => this.setState({ sheet: false }),
+      goWeb: () => { this.setState({ venueChosen: false }); this.startReading('website'); }, goScreenshot: () => { this.setState({ venueChosen: false }); this.startReading('screenshot'); },
+      venue, sourceLabel: srcLabel, webMiss: !!st.webMiss, webMissText: 'No menu found on ' + venue.site + '. Search for foods in the fatsecret database instead.',
+      backFromPrefs: () => this.go(venue.found ? 'dbsearch' : st.scanned ? 'menuresult' : 'camera', { camMode: 'menu' }),
+      prefGroups: [
+        pref('hunger', 'How hungry are you?', [['Just a little hungry','light'],['Ready for a regular meal','normal'],['Really hungry','very']]),
+        pref('mood', "What's your mood?", [['Something comforting','comfort'],['Something fresh and light','fresh'],["I'm open to anything",'open']]),
+        pref('sharing', 'Sharing?', [['Just me',false],['Sharing',true]]),
+      ],
+      pf: (() => {
+        const shot = st.fileMode === 'screenshot' || st.fileMode === 'photo'; const photo = st.fileMode === 'photo';
+        const slug = venue.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        const files = shot
+          ? photo ? [['IMG_2093.jpg', 'Today, 12:41 pm · Photos'], ['IMG_2092.jpg', 'Today, 12:40 pm · Photos'], ['IMG_2041.jpg', 'Yesterday · Photos']] : [['Screenshot · Google Maps', 'Today, 12:41 pm'], ['Screenshot · Google Maps', 'Today, 12:40 pm'], ['Screenshot · Messages', 'Yesterday']]
+          : [[slug + '-menu.pdf', 'PDF · 1.2 MB · Downloads'], ['lunch-menu-oct.pdf', 'PDF · 860 KB · Downloads'], ['IMG_2041.jpg', 'Photo · 2.4 MB · Photos']];
+        return { shot, file: !shot, photo, hasSteps: shot && !photo, maps: shot && !photo,
+          title: photo ? 'Take a photo' : shot ? 'Share a screenshot' : 'Upload a menu file',
+          sub: photo ? 'Capture the menu or upload from your gallery' : shot ? 'Use a screenshot of the menu from Google Maps' : 'PDF or image from your phone',
+          steps: [['1', 'Open ' + venue.name + ' in Google Maps'], ['2', 'Tap Menu and take a screenshot'], ['3', 'Come back and pick it below']],
+          listLabel: photo ? 'From your gallery' : shot ? 'Recent screenshots' : 'Recent files',
+          cta: photo ? 'Use this photo' : shot ? 'Use this screenshot' : 'Read this menu',
+          go: () => this.startReading(photo ? 'photo' : shot ? 'screenshot' : 'upload'),
+          items: files.map(([n, m], i) => { const on = i === st.fileSel; return { n, m,
+            rowStyle: 'display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:var(--fs-radius-md);cursor:pointer;text-align:left;color:var(--fs-color-on-surface-strong);background:var(--fs-color-surface-container-lowest);border:' + (on ? '2px solid var(--fs-color-primary)' : '1px solid var(--fs-color-border-weak)') + ';',
+            dotStyle: 'width:20px;height:20px;flex-shrink:0;border-radius:50%;box-sizing:border-box;border:' + (on ? '6px solid var(--fs-color-primary)' : '2px solid var(--fs-color-border-strong)') + ';',
+            onClick: () => this.setState({ fileSel: i }) }; }) };
+      })(),
+      goPrefs: () => this.go('prefs'), goDbSearch: () => this.go('dbsearch', { dbQuery: '' }),
+      picksBack: () => this.go(!venue.found && st.scanned ? 'menuresult' : 'prefs'), mrPrefs: true, mrList: false, mrCta: 'Show my 3 picks', mrGo: () => this.go('picks'),
+      mr: { title: { website: 'Menu found on ' + venue.site, screenshot: 'Menu read from your screenshot', photo: 'Menu read from your photo', upload: 'Menu read from your file', scan: 'Menu read from your photo' }[st.source] || 'Menu read from your photo',
+        sub: nm === 'restaurant' ? 'Calories and macros come from ' + venue.name + "'s own menu." : 'Each dish is matched to a generic food in the fatsecret database.' }, goPicks: () => this.go('picks'), detailBack: () => this.go(['dbsearch','menuresult'].includes(st.from) ? st.from : 'picks'), goDetail: () => this.go('detail'),
+      picksSub: `For ${persona.name} · ${fmt(persona.goal)} goal, ${fmt(persona.eaten)} eaten, ${fmt(persona.left)} kcal left · ${persona.restrict}`,
+      segDine: segStyle(st.mode === 'dine'), segDelivery: segStyle(st.mode === 'delivery'),
+      setDine: () => this.setState({ mode: 'dine' }), setDelivery: () => this.setState({ mode: 'delivery' }),
+      isDine: st.mode === 'dine', isDelivery: st.mode === 'delivery',
+      picks, pick, picksNote: picks.length < 3, picksNoteText: `Only ${picks.length} meals here fit ${persona.restrict.toLowerCase()} right now.`,
+      webDisabled: st.venueId === 'souper', webEnabled: st.venueId !== 'souper', detailExtras: false, showNutri: st.venueId !== 'souper', addPanel: st.mode !== 'delivery' && st.venueId === 'souper', logPrimary: st.mode !== 'delivery' && st.venueId !== 'souper', logSecondary: st.mode === 'delivery', showWaiterBtn: false, goWaiter: () => this.go('waiter'), goDelivery: () => this.go('delivery'),
+      logPick: () => this.logCurrent(pick, persona),
+      addonList: pick.addons.map(([t, d], i) => {
+        const on = !!st.addons[i];
+        return { t, delta: (d > 0 ? '+' : '−') + Math.abs(d) + ' kcal',
+          onToggle: () => this.setState(s => ({ addons: { ...s.addons, [i]: !s.addons[i] } })),
+          style: `display:flex;align-items:center;gap:12px;padding:14px;border-radius:var(--fs-radius-md);cursor:pointer;text-align:left;color:var(--fs-color-on-surface-strong);background:var(--fs-color-surface-container-lowest);border:1px solid ${on ? 'var(--fs-color-primary)' : 'var(--fs-color-border-weak)'};`,
+          boxStyle: `width:22px;height:22px;flex-shrink:0;border-radius:var(--fs-radius-xs);display:flex;align-items:center;justify-content:center;background:${on ? 'var(--fs-color-primary)' : 'transparent'};border:2px solid ${on ? 'var(--fs-color-primary)' : 'var(--fs-color-border-strong)'};color:${on ? 'var(--fs-color-on-primary)' : 'transparent'};` };
+      }),
+      deliveryKcal: fmt(kOf(pick) + pick.addons.reduce((s, a, i) => s + (st.addons[i] ? a[1] : 0), 0)),
+    };
+  }
+}
+</script>
+</body>
+</html>
